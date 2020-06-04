@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/white"
+        android:layout_marginBottom="10dp"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:id="@+id/rl_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:id="@+id/rl_icon"
+                android:layout_width="100dp"
+                android:layout_height="80dp">
+                <com.github.ivbaranov.mli.MaterialLetterIcon
+                    android:id="@+id/icon"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/rl_icon"
+                android:text="topic name"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/dark_grey"
+                android:padding="@dimen/_10sdp"
+                android:layout_centerVertical="true"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

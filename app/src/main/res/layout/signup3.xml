@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:background="@drawable/waves">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_20sdp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Choose your\nCourse"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_35sdp"
+
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:visibility="gone"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Entrancei"
+                            android:drawableEnd="@drawable/yellow_circle"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_35sdp"
+
+                            />
+                        <ImageView
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:src="@drawable/yellow_circle"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Step 3 of 3"
+
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                android:gravity="center_horizontal"
+                android:padding="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Your Grade"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_class"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp" />
+
+                <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                   android:orientation="horizontal">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="7 th"
+                       android:layout_weight="1"
+                       android:layout_marginRight="5dp"
+                       android:textColor="@color/colorPrimaryDark"
+                       android:textSize="18sp"
+                       android:background="@drawable/grey_corner_border"
+                       android:gravity="center_horizontal"
+                       android:padding="10dp"/>
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="8 th"
+                       android:layout_marginRight="5dp"
+                       android:layout_weight="1"
+                       android:textColor="@color/colorPrimaryDark"
+                       android:textSize="18sp"
+                       android:background="@drawable/grey_corner_border"
+                       android:gravity="center_horizontal"
+                       android:padding="10dp"/>
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="9 th"
+                       android:layout_marginRight="5dp"
+                       android:layout_weight="1"
+                       android:textColor="@color/colorPrimaryDark"
+                       android:textSize="18sp"
+                       android:background="@drawable/grey_corner_border"
+                       android:gravity="center_horizontal"
+                       android:padding="10dp"/>
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="10 th"
+
+                       android:layout_weight="1"
+                       android:textColor="@color/colorPrimaryDark"
+                       android:textSize="18sp"
+                       android:background="@drawable/grey_corner_border"
+                       android:gravity="center_horizontal"
+                       android:padding="10dp"/>
+               </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="11 th"
+                       android:layout_marginRight="5dp"
+                       android:layout_weight="1"
+                       android:textColor="@color/colorPrimaryDark"
+                       android:textSize="18sp"
+                       android:background="@drawable/grey_corner_border"
+                       android:gravity="center_horizontal"
+                       android:padding="10dp"/>
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="12 th"
+                       android:layout_marginRight="5dp"
+                       android:layout_weight="1"
+                       android:textColor="@color/white"
+                       android:textSize="18sp"
+                       android:background="@drawable/gradient_bg"
+                       android:gravity="center_horizontal"
+                       android:padding="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:background="@drawable/grey_corner_border"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="13 th"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Your Board"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CBSE"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:background="@drawable/grey_corner_border"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ICSE"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:background="@drawable/grey_corner_border"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="STATE BOARD"
+
+                        android:layout_weight="0.7"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:background="@drawable/grey_corner_border"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Your Target Exam"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="JEE"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:background="@drawable/grey_corner_border"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="NEET"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:background="@drawable/grey_corner_border"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="OTHERS"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.8"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:background="@drawable/grey_corner_border"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"/>
+
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:id="@+id/tv_create_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:padding="10dp"
+                    android:text="Create Account"
+                    android:textStyle="bold"
+                    android:onClick="onClick"
+                    android:textSize="18sp"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:background="@drawable/gradient_bg"
+                    android:layout_weight="1"
+                    />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

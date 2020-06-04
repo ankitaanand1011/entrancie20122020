@@ -1,0 +1,87 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.exam.entranceinew">
+
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:name=".GlobalClass"
+        android:theme="@style/ShopHopAppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="m"
+        android:fullBackupContent="true">
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/ShopHopAppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.activity.SplashScreen"
+            android:theme="@style/ShopHopAppTheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.activity.LoginScreen"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"
+            />
+        <activity android:name=".ui.activity.Signup2"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.activity.Signup1"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.activity.Signup3"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.activity.ForgotPasswordScreen"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.activity.ResetPasswordScreen"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.activity.ChangePasswordScreen"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.activity.StudyNotesScreen"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.activity.ChaptersScreen"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.activity.SubChaptersScreen"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.activity.SubChaptersContent"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+    </application>
+</manifest>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_item_home"
+        android:title="Home"
+        android:icon="@mipmap/ic_home"
+        app:showAsAction="ifRoom" />
+    <!-- android:icon="@mipmap/house"-->
+
+
+    <item
+        android:id="@+id/nav_item_notes"
+        android:title="Community"
+        android:icon="@mipmap/ic_community"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_item_test"
+        android:icon="@mipmap/ic_book"
+        android:title="Profile"
+        app:showAsAction="ifRoom" />
+
+
+</menu>

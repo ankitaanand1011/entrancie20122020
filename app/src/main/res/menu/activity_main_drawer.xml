@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_item_home"
+            android:title="Home"
+            android:visible="false"
+            android:icon="@mipmap/school_syllabus"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/nav_my_content"
+            android:icon="@mipmap/content"
+            android:title="My Content" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@mipmap/settings1"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_refer"
+            android:icon="@mipmap/share"
+            android:title="Refer a Friend" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@mipmap/help"
+            android:title="Help" />
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@mipmap/aboutus"
+            android:title="About Us" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@mipmap/aboutus"
+            android:title="Logout" />
+    </group>
+
+
+</menu>

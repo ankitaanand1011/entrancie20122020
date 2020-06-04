@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomBar"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar_lay"
+            layout="@layout/toolbar" />
+
+
+        <include layout="@layout/content_main" />
+
+
+    </LinearLayout>
+
+
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:backgroundColor="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        app:iconSize="@dimen/_18sdp"
+        app:textSize="@dimen/_11sdp"
+        app:menu="@menu/menu_bottom_navigation"/>
+
+</RelativeLayout>

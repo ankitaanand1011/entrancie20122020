@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"
+        android:background="@drawable/splash_blue_bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/mobilewithcap" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_login"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:padding="12dp"
+                android:text="LOGIN"
+
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:background="@drawable/gradient_bg"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp" />
+
+            <TextView
+                android:id="@+id/tv_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="12dp"
+                android:text="SIGN UP"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:onClick="onClick"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_white_blue"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
