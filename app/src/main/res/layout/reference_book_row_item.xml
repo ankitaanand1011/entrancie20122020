@@ -59,7 +59,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:tint="@color/colorGrey"
-                    android:src="@mipmap/ic_notes"
+                    android:src="@mipmap/ic_reference_book"
                     android:layout_centerVertical="true"
 
                    />

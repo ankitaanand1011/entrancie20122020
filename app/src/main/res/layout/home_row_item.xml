@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:background="@android:color/transparent"
+  >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/home_bg">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_alignParentEnd="true"
+                android:src="@mipmap/book"
+                android:tint="@color/white_opacity_1"
+                android:padding="@dimen/_10sdp"
+                android:layout_centerVertical="true"/>
+
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="topic name"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:padding="@dimen/_10sdp"
+                android:layout_centerVertical="true"/>
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

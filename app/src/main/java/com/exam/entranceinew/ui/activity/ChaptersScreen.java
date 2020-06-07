@@ -62,7 +62,7 @@ public class ChaptersScreen extends AppCompatActivity {
     }
     private void function() {
 
-        tv_header.setText("Chapters");
+        tv_header.setText(getIntent().getStringExtra("name"));
         arr_study = new ArrayList<>();
         chapters_list();
 

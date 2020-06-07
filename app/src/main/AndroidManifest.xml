@@ -83,5 +83,13 @@
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden"/>
 
+        <activity android:name=".ui.activity.ReferenceBookScreen"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.activity.BookSectionActivity"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
     </application>
 </manifest>

@@ -18,6 +18,9 @@ public class ApplicationConstants {
     public static final String chapters_list = baseApi+"notes-get-chapter-list";
     public static final String sub_chapter_list = baseApi+"notes-get-sub-chapter-list";
     public static final String chapter_content = baseApi+"notes-get-chapter-content";
+    public static final String reference_book = baseApi+"books-get-student-books";
+    public static final String reference_book_section= baseApi+"books-get-books-sections";
+    public static final String reference_book_content_description = baseApi+"books-get-books-content";
 
 
 

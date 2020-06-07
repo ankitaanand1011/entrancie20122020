@@ -52,21 +52,23 @@ public class ChaptersAdapter extends RecyclerView.Adapter<ChaptersAdapter.ViewHo
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
 
         holder.icon.setLetter(arr_study.get(position).get("name"));
-        holder.icon.setLetterColor(context.getResources().getColor(R.color.black));
-        holder.icon.setShapeColor(context.getResources().getColor(R.color.white));
+        holder.icon.setLetterColor(context.getResources().getColor(R.color.white));
+        holder.icon.setShapeColor(context.getResources().getColor(R.color.darkpurple));
         holder.icon.setShapeType(MaterialLetterIcon.Shape.CIRCLE);
-        holder.icon.setLetterSize(26);
+        holder.icon.setLetterSize(12);
         holder.icon.setLetterTypeface(Typeface.SANS_SERIF);
         holder.icon.setInitials(true);
-        holder.icon.setInitialsNumber(2);
+        holder.icon.setInitialsNumber(1);
 
-        holder.rl_icon.setBackgroundColor(randomAndroidColor);
+        //holder.rl_icon.setBackgroundColor(randomAndroidColor);
+        //holder.tv_name.setCompoundDrawableTintList(R.color.darkpurple);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SubChaptersScreen.class);
                 intent.putExtra("id",arr_study.get(position).get("id"));
+                intent.putExtra("name",arr_study.get(position).get("name"));
                 context.startActivity(intent);
 
             }

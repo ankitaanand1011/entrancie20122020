@@ -66,7 +66,7 @@ public class SubChaptersContent extends AppCompatActivity {
     }
     private void function() {
 
-
+        tv_header.setText(getIntent().getStringExtra("name"));
         chapter_content();
 
         iv_back.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +122,7 @@ public class SubChaptersContent extends AppCompatActivity {
                             Log.d(TAG, "onResponse:description replace>>>> " + description);
 
 
-                            tv_header.setText(name);
+
                             htmlTextView.setHtml(description);
                             webview.loadData(description, "text/html", "UTF-8");
                             mView.hideDialog();
