@@ -30,7 +30,7 @@
     <color name="dark_red">#ed5656</color>
     <color name="grey">#C3C4C5</color>
     <color name="pressed_color_tv">#eaeef1</color>
-    <color name="yellow_tv">#f7bb1c</color>
+    <color name="yellow_tv">#FEDF15</color>
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
@@ -42,6 +42,7 @@
     <color name="purple">#CC5B2C6F</color>
     <color name="logo_purple">#734F96</color>
     <color name="text_bg_blue">#EAECEE</color>
+    <color name="bg_blue">#F4F5F6</color>
 
  <item name="blue" type="color">#61a6f1</item>
  <item name="darkblue" type="color">#f8ae59</item>

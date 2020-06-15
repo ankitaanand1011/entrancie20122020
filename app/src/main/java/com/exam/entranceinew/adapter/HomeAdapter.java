@@ -32,6 +32,7 @@ import com.exam.entranceinew.GlobalClass;
 import com.exam.entranceinew.R;
 import com.exam.entranceinew.Shared_Preference;
 import com.exam.entranceinew.ViewDialog;
+import com.exam.entranceinew.ui.activity.ExamActivity;
 import com.exam.entranceinew.ui.activity.MainActivity;
 import com.exam.entranceinew.ui.activity.ReferenceBookScreen;
 import com.exam.entranceinew.ui.activity.StudyNotesScreen;
@@ -119,12 +120,22 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(categoryData.name.equals("Study Notes")){
-                    Intent intent = new Intent(context, StudyNotesScreen.class);
-                    context.startActivity(intent);
-                }else if(categoryData.name.equals("Reference Books")){
-                    Intent intent = new Intent(context, ReferenceBookScreen.class);
-                    context.startActivity(intent);
+                switch (categoryData.name) {
+                    case "Study Notes": {
+                        Intent intent = new Intent(context, StudyNotesScreen.class);
+                        context.startActivity(intent);
+                        break;
+                    }
+                    case "Reference Books": {
+                        Intent intent = new Intent(context, ReferenceBookScreen.class);
+                        context.startActivity(intent);
+                        break;
+                    }
+                    case "Online Test": {
+                        Intent intent = new Intent(context, ExamActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    }
                 }
             }
         });
