@@ -64,6 +64,7 @@ public class BookSectionActivity extends AppCompatActivity {
         rvStudyNotes = findViewById(R.id.rvStudyNotes);
         bottomwebview = findViewById(R.id.bottomwebview);
         topwebview = findViewById(R.id.topwebview);
+        rvStudyNotes.setNestedScrollingEnabled(false);
         rvStudyNotes.setLayoutManager(new LinearLayoutManager(BookSectionActivity.this, LinearLayoutManager.VERTICAL, false));
     }
     private void function() {

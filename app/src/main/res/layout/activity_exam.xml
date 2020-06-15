@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:src="@mipmap/ic_back"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
+                android:tint="@color/white"/>
+
+            <TextView
+                android:id="@+id/tv_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/25"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/tv_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:layout_toEndOf="@+id/iv_back"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/yellow_tv"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/tv_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:textSize="@dimen/_12sdp"
+                android:layout_alignParentEnd="true"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/white_corner_border"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardUseCompatPadding="true"
+           >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Integers Exam"
+                    android:layout_toStartOf="@+id/iv_layout_right"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:singleLine="true"
+                    android:padding="@dimen/_5sdp"
+                    android:textSize="@dimen/_14sdp"/>
+
+                <ImageView
+                    android:id="@+id/iv_layout_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:padding="10dp"
+                    android:src="@mipmap/more"/>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardUseCompatPadding="true"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sample_text"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp"
+                        />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Option 1"
+                            android:padding="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                           />
+
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Option 2"
+                            />
+
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Option 3"
+                            />
+
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Option 4"
+                            />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:tint="@color/white"
+
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_baseline_arrow_back_24"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear Selection"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/_14sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:background="@drawable/white_stoke_bg"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:tint="@color/white"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_baseline_arrow_forward_24"/>
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/llRightDrawer"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginTop="?actionBarSize"
+        android:layout_marginBottom="?actionBarSize"
+        app:cardElevation="@dimen/_10sdp"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        >
+
+        <include layout="@layout/right_drawer" />
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

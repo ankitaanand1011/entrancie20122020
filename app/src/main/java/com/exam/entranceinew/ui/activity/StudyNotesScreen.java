@@ -69,6 +69,7 @@ public class StudyNotesScreen extends AppCompatActivity {
         iv_back = findViewById(R.id.iv_back);
         tv_header = findViewById(R.id.tv_header);
         rvStudyNotes = findViewById(R.id.rvStudyNotes);
+        rvStudyNotes.setNestedScrollingEnabled(false);
         rvStudyNotes.setLayoutManager(new LinearLayoutManager(StudyNotesScreen.this, LinearLayoutManager.VERTICAL, false));
     }
     private void function() {
