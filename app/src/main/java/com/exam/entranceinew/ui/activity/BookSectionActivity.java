@@ -28,6 +28,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -64,7 +65,6 @@ public class BookSectionActivity extends AppCompatActivity {
         rvStudyNotes = findViewById(R.id.rvStudyNotes);
         bottomwebview = findViewById(R.id.bottomwebview);
         topwebview = findViewById(R.id.topwebview);
-        rvStudyNotes.setLayoutManager(new LinearLayoutManager(BookSectionActivity.this, LinearLayoutManager.VERTICAL, false));
     }
     private void function() {
 
@@ -83,6 +83,8 @@ public class BookSectionActivity extends AppCompatActivity {
 
     private void reference_book_section() {
       //  mView.showDialog();
+
+        Log.d("qwerty", "reference_book_section: id "+getIntent().getStringExtra("id"));
         final String tag_string_req = "reference_book_section";
         String url = ApplicationConstants.reference_book_section;
         Log.d(TAG, "reference_book_section: url >>> "+url);
@@ -92,6 +94,7 @@ public class BookSectionActivity extends AppCompatActivity {
             js.put("request_key",  globalClass.getRequest_key());
             js.put("request_token", globalClass.getRequest_token());
             js.put("book_id", getIntent().getStringExtra("id"));
+         //   js.put("book_id", "18");
             js.put("device", "mobile");
 
             Log.d(TAG, "reference_book_section: js >  "+js.toString());
@@ -122,37 +125,26 @@ public class BookSectionActivity extends AppCompatActivity {
                                     for( int i = 0 ; i < data.length() ; i++ ) {
 
                                         JSONObject obj_data = data.getJSONObject(i);
-                                        String id = obj_data.getString("id");
-                                        String name = obj_data.getString("name");
+                                        String ids = obj_data.getString("id");
+                                        String section_name = obj_data.getString("section_name");
 
-                                        JSONArray solutions = obj_data.getJSONArray("solutions");
-                                        Log.d(TAG, "onResponse: solution>>"+solutions);
+                                        Log.d(TAG, "onResponse:id>>> " + ids);
+                                        Log.d(TAG, "onResponse:section_name>>> " + ids);
 
-                                        for( int j = 0 ; j < solutions.length() ;j++ ) {
-
-                                            JSONObject solutions_data = solutions.getJSONObject(j);
-
-                                            String id_title = solutions_data.getString("id");
-                                            String title = solutions_data.getString("title");
-
-                                            Log.d(TAG, "onResponse:name>>>> " + id_title);
-                                            Log.d(TAG, "onResponse:id>>> " + title);
-
-                                            HashMap<String, String> hashMap = new HashMap<>();
-                                            hashMap.put("id", id_title);
-                                            hashMap.put("name", title);
-                                            arr_study.add(hashMap);
-                                        }
-
-                                        Log.d(TAG, "onResponse: out loop j");
-
+                                        HashMap<String, String> hashMap = new HashMap<>();
+                                        hashMap.put("id", ids);
+                                        hashMap.put("section_name", section_name);
+                                        arr_study.add(hashMap);
                                     }
+
+
+
 
 
                                     Log.d(TAG, "onResponse: out loop i");
 
                                     rvStudyNotes.setLayoutManager(new LinearLayoutManager(BookSectionActivity.this, LinearLayoutManager.VERTICAL, false));
-                                    bookSectionAdapter = new BookSectionAdapter(BookSectionActivity.this, arr_study);
+                                    bookSectionAdapter = new BookSectionAdapter(BookSectionActivity.this, arr_study,getIntent().getStringExtra("id"));
                                     rvStudyNotes.setAdapter(bookSectionAdapter);
 
                                     bookSectionAdapter.notifyDataSetChanged();
@@ -160,7 +152,8 @@ public class BookSectionActivity extends AppCompatActivity {
 
 
 
-                                }else{
+
+                            }else{
                                     mView.hideDialog();
                                     Toast.makeText(BookSectionActivity.this, message, Toast.LENGTH_LONG).show();
                                 }

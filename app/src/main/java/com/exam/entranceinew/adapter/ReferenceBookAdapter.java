@@ -3,6 +3,7 @@ package com.exam.entranceinew.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,8 @@ public class ReferenceBookAdapter extends RecyclerView.Adapter<ReferenceBookAdap
                 Intent intent = new Intent(context, BookSectionActivity.class);
                 intent.putExtra("id",arr_study.get(position).get("id"));
                 intent.putExtra("name",arr_study.get(position).get("name"));
+
+                Log.d("qwerty", "onClick: id ref"+arr_study.get(position).get("id"));
                 context.startActivity(intent);
 
             }
