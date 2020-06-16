@@ -26,6 +26,7 @@
                 android:id="@+id/rl_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true">
                 <com.github.ivbaranov.mli.MaterialLetterIcon
@@ -41,6 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@+id/rl_icon"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:layout_toEndOf="@+id/rl_drawable_icon"
                 android:text="topic name"
                 android:gravity="center_vertical"
@@ -49,17 +51,19 @@
 
             <RelativeLayout
                 android:id="@+id/rl_drawable_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:padding="10dp"
+                android:background="@drawable/circle_bg_darkpurple"
                 android:layout_centerVertical="true"
                 >
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:tint="@color/colorGrey"
+                    android:tint="@color/white"
                     android:src="@mipmap/ic_notes"
+                    android:layout_centerInParent="true"
                     android:layout_centerVertical="true"
 
                    />
