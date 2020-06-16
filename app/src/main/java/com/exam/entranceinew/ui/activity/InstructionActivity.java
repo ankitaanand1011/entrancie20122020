@@ -51,5 +51,12 @@ public class InstructionActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
