@@ -25,6 +25,11 @@ import com.exam.entranceinew.ui.activity.NCERTSolution;
 import com.exam.entranceinew.ui.activity.ReferenceBookScreen;
 import com.exam.entranceinew.ui.activity.StudyNotesScreen;
 
+import com.exam.entranceinew.ui.activity.TestActivity;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+
 import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
@@ -121,7 +126,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                         break;
                     }
                     case "Online Test": {
-                        Intent intent = new Intent(context, ExamActivity.class);
+                        Intent intent = new Intent(context, TestActivity.class);
                         context.startActivity(intent);
                         break;
                     }

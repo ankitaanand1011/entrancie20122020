@@ -76,12 +76,14 @@ public class BookSectionAdapter extends RecyclerView.Adapter<BookSectionAdapter.
 
 
 
+
                 Log.d("qwerty", "bookk section adapter onClick: id"+id);
                 Intent intent = new Intent(context, SectionListActivity.class);
                 intent.putExtra("id",arr_study.get(position).get("id"));
                 intent.putExtra("s_id",id);
                 intent.putExtra("section_name",arr_study.get(position).get("section_name"));
                 context.startActivity(intent);
+
 
             }
         });
