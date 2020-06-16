@@ -18,13 +18,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-<<<<<<< HEAD
-        <activity android:name=".ui.activity.NcertChapters"></activity>
-        <activity android:name=".ui.activity.NCERTSolution" />
-=======
 
 
->>>>>>> refs/remotes/origin/master
         <activity
             android:name=".ui.activity.MainActivity"
             android:label="@string/app_name"
@@ -47,59 +42,6 @@
         <activity
             android:name=".ui.activity.LoginScreen"
             android:theme="@style/ShopHopAppTheme"
-<<<<<<< HEAD
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.Signup2"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.Signup1"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.Signup3"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.ForgotPasswordScreen"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.ResetPasswordScreen"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.ChangePasswordScreen"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.StudyNotesScreen"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.ChaptersScreen"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.SubChaptersScreen"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.SubChaptersContent"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.ReferenceBookScreen"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.BookSectionActivity"
-            android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.ExamActivity"
-=======
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
         <activity android:name=".ui.activity.Signup2"
@@ -147,19 +89,15 @@
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
         <activity android:name=".ui.activity.BookSectionActivity"
->>>>>>> refs/remotes/origin/master
             android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.ReportActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+
+        <activity android:name=".ui.activity.ExamActivity"
             android:theme="@style/ShopHopAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".ui.activity.SectionListActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+
+        <activity android:name=".ui.activity.ReportActivity"
             android:theme="@style/ShopHopAppTheme"
-<<<<<<< HEAD
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-=======
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
         <activity android:name=".ui.activity.SectionListActivity"
@@ -174,7 +112,14 @@
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
->>>>>>> refs/remotes/origin/master
+        <activity android:name=".ui.activity.NCERTSolution"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+
+        <activity android:name=".ui.activity.NcertChapters"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+
     </application>
 
 </manifest>
