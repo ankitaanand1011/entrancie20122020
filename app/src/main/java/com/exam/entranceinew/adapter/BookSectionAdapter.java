@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import static com.android.volley.Request.Method.HEAD;
+
 public class BookSectionAdapter extends RecyclerView.Adapter<BookSectionAdapter.ViewHolder>{
     private LayoutInflater mInflater;
     Context context;
@@ -72,7 +74,7 @@ public class BookSectionAdapter extends RecyclerView.Adapter<BookSectionAdapter.
                 holder.tv_class.setBackground(context.getResources().getDrawable(R.drawable.gradient_bg_noradius));
                 holder.tv_class.setTextColor(context.getResources().getColor(R.color.white));*/
 
-<<<<<<< HEAD
+
 
                 Log.d("qwerty", "bookk section adapter onClick: id"+id);
                 Intent intent = new Intent(context, SectionListActivity.class);
@@ -80,12 +82,6 @@ public class BookSectionAdapter extends RecyclerView.Adapter<BookSectionAdapter.
                 intent.putExtra("s_id",id);
                 intent.putExtra("section_name",arr_study.get(position).get("section_name"));
                 context.startActivity(intent);
-=======
-             /*   Intent intent = new Intent(context, BookSectionActivity.class);
-                intent.putExtra("id",arr_study.get(position).get("id"));
-                intent.putExtra("name",arr_study.get(position).get("name"));
-                context.startActivity(intent);*/
->>>>>>> 18c528e527bf5f44d52a5404bd1c9497f69191b8
 
             }
         });

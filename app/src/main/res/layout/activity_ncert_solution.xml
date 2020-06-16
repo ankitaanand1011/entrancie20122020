@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.NCERTSolution">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/ncertheader"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/science"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:baselineAligned="false">
+
+                <RelativeLayout
+                    android:id="@+id/rl_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true">
+                        <com.github.ivbaranov.mli.MaterialLetterIcon
+                            android:id="@+id/icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@+id/rl_icon"
+                        android:layout_toEndOf="@+id/rl_drawable_icon"
+                        android:text="Science"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/dark_grey"
+                        android:layout_centerVertical="true"/>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_drawable_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_centerVertical="true"
+                        >
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:tint="@color/colorGrey"
+                            android:src="@mipmap/ic_notes"
+                            android:layout_centerVertical="true"
+
+                            />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:id="@+id/maths"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:baselineAligned="false">
+
+                <RelativeLayout
+                    android:id="@+id/rl_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true">
+                        <com.github.ivbaranov.mli.MaterialLetterIcon
+                            android:id="@+id/icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@+id/rl_icon"
+                        android:layout_toEndOf="@+id/rl_drawable_icon"
+                        android:text="Maths"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/dark_grey"
+                        android:layout_centerVertical="true"/>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_drawable_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_centerVertical="true"
+                        >
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:tint="@color/colorGrey"
+                            android:src="@mipmap/ic_notes"
+                            android:layout_centerVertical="true"
+
+                            />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/english"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:baselineAligned="false">
+
+                <RelativeLayout
+                    android:id="@+id/rl_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true">
+                        <com.github.ivbaranov.mli.MaterialLetterIcon
+                            android:id="@+id/icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@+id/rl_icon"
+                        android:layout_toEndOf="@+id/rl_drawable_icon"
+                        android:text="English"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/dark_grey"
+                        android:layout_centerVertical="true"/>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_drawable_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_centerVertical="true"
+                        >
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:tint="@color/colorGrey"
+                            android:src="@mipmap/ic_notes"
+                            android:layout_centerVertical="true"
+
+                            />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hindi"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:baselineAligned="false">
+
+                <RelativeLayout
+                    android:id="@+id/rl_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true">
+                        <com.github.ivbaranov.mli.MaterialLetterIcon
+                            android:id="@+id/icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@+id/rl_icon"
+                        android:layout_toEndOf="@+id/rl_drawable_icon"
+                        android:text="Hindi"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/dark_grey"
+                        android:layout_centerVertical="true"/>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_drawable_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_centerVertical="true"
+                        >
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:tint="@color/colorGrey"
+                            android:src="@mipmap/ic_notes"
+                            android:layout_centerVertical="true"
+
+                            />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

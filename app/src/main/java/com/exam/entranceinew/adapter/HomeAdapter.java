@@ -1,48 +1,31 @@
 package com.exam.entranceinew.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.exam.entranceinew.ApplicationConstants;
 import com.exam.entranceinew.CategoryData;
 import com.exam.entranceinew.GlobalClass;
 import com.exam.entranceinew.R;
 import com.exam.entranceinew.Shared_Preference;
 import com.exam.entranceinew.ViewDialog;
 import com.exam.entranceinew.ui.activity.ExamActivity;
-import com.exam.entranceinew.ui.activity.MainActivity;
+import com.exam.entranceinew.ui.activity.NCERTSolution;
 import com.exam.entranceinew.ui.activity.ReferenceBookScreen;
 import com.exam.entranceinew.ui.activity.StudyNotesScreen;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
@@ -121,6 +104,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 switch (categoryData.name) {
+
+                    case "NCERT Solutions":{
+                        Intent intent = new Intent(context, NCERTSolution.class);
+                        context.startActivity(intent);
+                        break;
+                    }
                     case "Study Notes": {
                         Intent intent = new Intent(context, StudyNotesScreen.class);
                         context.startActivity(intent);
