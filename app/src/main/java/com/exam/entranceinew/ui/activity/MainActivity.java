@@ -26,10 +26,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.exam.entranceinew.GlobalClass;
+import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
-import com.exam.entranceinew.Shared_Preference;
-import com.exam.entranceinew.ViewDialog;
+import com.exam.entranceinew.utils.Shared_Preference;
+import com.exam.entranceinew.utils.ViewDialog;
+import com.exam.entranceinew.ui.activity.usersection.LoginScreen;
 import com.exam.entranceinew.ui.fragment.HomeFragment;
 import com.exam.entranceinew.ui.fragment.ProfileFragment;
 

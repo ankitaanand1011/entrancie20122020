@@ -1,8 +1,6 @@
 package com.exam.entranceinew.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +9,12 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exam.entranceinew.GlobalClass;
+import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
-import com.exam.entranceinew.ViewDialog;
-import com.exam.entranceinew.ui.activity.BookSectionActivity;
+import com.exam.entranceinew.utils.ViewDialog;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder>{
     private LayoutInflater mInflater;

@@ -11,11 +11,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exam.entranceinew.GlobalClass;
+import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
-import com.exam.entranceinew.ViewDialog;
-import com.exam.entranceinew.ui.activity.SubChaptersContent;
-import com.exam.entranceinew.ui.activity.SubChaptersScreen;
+import com.exam.entranceinew.utils.ViewDialog;
+import com.exam.entranceinew.ui.activity.studynotes.SubChaptersContent;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 import java.util.ArrayList;

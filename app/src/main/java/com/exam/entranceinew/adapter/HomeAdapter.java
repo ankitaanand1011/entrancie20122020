@@ -16,18 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.exam.entranceinew.CategoryData;
-import com.exam.entranceinew.GlobalClass;
+import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
-import com.exam.entranceinew.Shared_Preference;
-import com.exam.entranceinew.ViewDialog;
-import com.exam.entranceinew.ui.activity.ExamActivity;
+import com.exam.entranceinew.utils.Shared_Preference;
+import com.exam.entranceinew.utils.ViewDialog;
 import com.exam.entranceinew.ui.activity.NCERTSolution;
-import com.exam.entranceinew.ui.activity.ReferenceBookScreen;
-import com.exam.entranceinew.ui.activity.StudyNotesScreen;
+import com.exam.entranceinew.ui.activity.referencebook.ReferenceBookScreen;
+import com.exam.entranceinew.ui.activity.studynotes.StudyNotesScreen;
 
-import com.exam.entranceinew.ui.activity.TestActivity;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.exam.entranceinew.ui.activity.onlinetest.TestActivity;
 
 
 import java.util.ArrayList;

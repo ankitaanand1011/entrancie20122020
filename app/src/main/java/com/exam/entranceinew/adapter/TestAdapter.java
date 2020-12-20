@@ -15,12 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.exam.entranceinew.GlobalClass;
+import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
-import com.exam.entranceinew.Shared_Preference;
+import com.exam.entranceinew.utils.Shared_Preference;
 import com.exam.entranceinew.SubjectData;
-import com.exam.entranceinew.ViewDialog;
-import com.exam.entranceinew.ui.activity.InstructionActivity;
+import com.exam.entranceinew.utils.ViewDialog;
+import com.exam.entranceinew.ui.activity.onlinetest.InstructionActivity;
 
 import java.util.ArrayList;
 

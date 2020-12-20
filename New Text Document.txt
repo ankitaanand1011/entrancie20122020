@@ -1,0 +1,4 @@
+password ankii1011
+alias entrancie
+password entrancie@123
+orgainsation Entrancie

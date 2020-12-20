@@ -11,28 +11,27 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exam.entranceinew.GlobalClass;
+import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
-import com.exam.entranceinew.ViewDialog;
-import com.exam.entranceinew.ui.activity.ChaptersScreen;
-import com.exam.entranceinew.ui.activity.NcertChapters;
+import com.exam.entranceinew.utils.ViewDialog;
+
+import com.exam.entranceinew.ui.activity.ncertsolution.NcertChapters;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 
 public class SolutionsAdapter extends RecyclerView.Adapter<SolutionsAdapter.ViewHolder>{
     private LayoutInflater mInflater;
     Context context;
-    //ArrayList<HashMap<String,String>> arr_study;
-    List<String> ncert_arr;
+    ArrayList<HashMap<String,String>> ncert_arr;
+   // List<String> ncert_arr;
     GlobalClass globalClass;
     ViewDialog mView;
     String pos = "0";
     String TAG= "sol_adapter";
-    public SolutionsAdapter(Context  context, List<String> ncert_arr) {
+    public SolutionsAdapter(Context  context, ArrayList<HashMap<String,String>> ncert_arr) {
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
      //   this.arr_study = arr_study;
@@ -48,14 +47,14 @@ public class SolutionsAdapter extends RecyclerView.Adapter<SolutionsAdapter.View
     public void onBindViewHolder(final SolutionsAdapter.ViewHolder holder, final int position) {
 
        // String name = arr_study.get(position).get("name");
-        String name = ncert_arr.get(position);
+        String name = ncert_arr.get(position).get("name");
         holder.tv_name.setText(name);
 
         int[] androidColors = context.getResources().getIntArray(R.array.androidcolors);
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
 
        // holder.icon.setLetter(arr_study.get(position).get("name"));
-        holder.icon.setLetter(ncert_arr.get(position));
+        holder.icon.setLetter(name);
         holder.icon.setLetterColor(context.getResources().getColor(R.color.white));
         holder.icon.setShapeColor(context.getResources().getColor(R.color.darkpurple));
         holder.icon.setShapeType(MaterialLetterIcon.Shape.CIRCLE);
@@ -74,8 +73,8 @@ public class SolutionsAdapter extends RecyclerView.Adapter<SolutionsAdapter.View
                 holder.tv_class.setTextColor(context.getResources().getColor(R.color.white));*/
 
                 Intent intent = new Intent(context, NcertChapters.class);
-              /*  intent.putExtra("id",arr_study.get(position).get("id"));
-                intent.putExtra("name",arr_study.get(position).get("name"));*/
+                intent.putExtra("id",ncert_arr.get(position).get("id"));
+                intent.putExtra("name",ncert_arr.get(position).get("name"));
                 context.startActivity(intent);
 
             }

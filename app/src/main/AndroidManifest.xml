@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".GlobalClass"
+        android:name=".utils.GlobalClass"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.SplashScreen"
+            android:name=".ui.activity.usersection.SplashScreen"
             android:theme="@style/ShopHopAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,75 +40,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.LoginScreen"
+            android:name=".ui.activity.usersection.LoginScreen"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.Signup2"
+        <activity android:name=".ui.activity.usersection.Signup2"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.Signup1"
+        <activity android:name=".ui.activity.usersection.Signup1"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.Signup3"
+        <activity android:name=".ui.activity.usersection.Signup3"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.ForgotPasswordScreen"
+        <activity android:name=".ui.activity.usersection.ForgotPasswordScreen"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.ResetPasswordScreen"
+        <activity android:name=".ui.activity.usersection.ResetPasswordScreen"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.ChangePasswordScreen"
+        <activity android:name=".ui.activity.usersection.ChangePasswordScreen"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.StudyNotesScreen"
+        <activity android:name=".ui.activity.studynotes.StudyNotesScreen"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.ChaptersScreen"
+        <activity android:name=".ui.activity.studynotes.ChaptersScreen"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.SubChaptersScreen"
+        <activity android:name=".ui.activity.studynotes.SubChaptersScreen"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.SubChaptersContent"
+        <activity android:name=".ui.activity.studynotes.SubChaptersContent"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.ReferenceBookScreen"
+        <activity android:name=".ui.activity.referencebook.ReferenceBookScreen"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.BookSectionActivity"
+        <activity android:name=".ui.activity.referencebook.BookSectionActivity"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.ExamActivity"
+        <activity android:name=".ui.activity.onlinetest.ExamActivity"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.ReportActivity"
+        <activity android:name=".ui.activity.onlinetest.ReportActivity"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.SectionListActivity"
+        <activity android:name=".ui.activity.referencebook.SectionListActivity"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.TestActivity"
+        <activity android:name=".ui.activity.onlinetest.TestActivity"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.InstructionActivity"
+        <activity android:name=".ui.activity.onlinetest.InstructionActivity"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 

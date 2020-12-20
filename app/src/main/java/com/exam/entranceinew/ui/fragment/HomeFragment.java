@@ -1,6 +1,5 @@
 package com.exam.entranceinew.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.exam.entranceinew.CategoryData;
 import com.exam.entranceinew.R;
 import com.exam.entranceinew.adapter.HomeAdapter;
-import com.exam.entranceinew.adapter.StudyNotesAdapter;
-import com.exam.entranceinew.ui.activity.StudyNotesScreen;
 
 import java.util.ArrayList;
 

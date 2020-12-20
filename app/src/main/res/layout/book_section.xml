@@ -1,16 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include
         android:id="@+id/header"
         layout="@layout/header"/>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardUseCompatPadding="true"
+        android:layout_below="@+id/header"
+        android:id="@+id/cv_topic"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/topic_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/iv_layout_right"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorAccent"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:singleLine="true"
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_14sdp"/>
+
+            <ImageView
+                android:id="@+id/iv_layout_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:padding="10dp"
+                android:src="@mipmap/more"/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/cv_topic"
         android:scrollbars="none">
 
         <LinearLayout
@@ -26,17 +68,7 @@
                 android:layout_height="wrap_content"
                />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvStudyNotes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </RelativeLayout>
 
             <WebView
                 android:id="@+id/bottomwebview"
@@ -48,4 +80,18 @@
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/llRightDrawer"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginTop="?actionBarSize"
+        app:cardElevation="@dimen/_10sdp"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:visibility="gone"
+        >
+
+        <include layout="@layout/right_content_list" />
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

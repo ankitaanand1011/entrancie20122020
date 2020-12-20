@@ -1,7 +1,6 @@
 package com.exam.entranceinew.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,15 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.exam.entranceinew.CategoryData;
-import com.exam.entranceinew.GlobalClass;
+import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
-import com.exam.entranceinew.Shared_Preference;
+import com.exam.entranceinew.utils.Shared_Preference;
 import com.exam.entranceinew.SubjectData;
-import com.exam.entranceinew.ViewDialog;
-import com.exam.entranceinew.ui.activity.ExamActivity;
-import com.exam.entranceinew.ui.activity.ReferenceBookScreen;
-import com.exam.entranceinew.ui.activity.StudyNotesScreen;
+import com.exam.entranceinew.utils.ViewDialog;
 
 import java.util.ArrayList;
 

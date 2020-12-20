@@ -16,12 +16,12 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.exam.entranceinew.ApplicationConstants;
-import com.exam.entranceinew.GlobalClass;
+import com.exam.entranceinew.utils.ApplicationConstants;
+import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.ui.activity.MainActivity;
 import com.exam.entranceinew.R;
-import com.exam.entranceinew.Shared_Preference;
-import com.exam.entranceinew.ViewDialog;
+import com.exam.entranceinew.utils.Shared_Preference;
+import com.exam.entranceinew.utils.ViewDialog;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 

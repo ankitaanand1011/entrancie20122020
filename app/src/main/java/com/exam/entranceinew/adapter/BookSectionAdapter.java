@@ -12,18 +12,15 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exam.entranceinew.GlobalClass;
+import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
-import com.exam.entranceinew.ViewDialog;
-import com.exam.entranceinew.ui.activity.BookSectionActivity;
-import com.exam.entranceinew.ui.activity.SectionListActivity;
+import com.exam.entranceinew.utils.ViewDialog;
+import com.exam.entranceinew.ui.activity.referencebook.SectionListActivity;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-
-import static com.android.volley.Request.Method.HEAD;
 
 public class BookSectionAdapter extends RecyclerView.Adapter<BookSectionAdapter.ViewHolder>{
     private LayoutInflater mInflater;

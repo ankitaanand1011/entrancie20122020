@@ -228,6 +228,7 @@
         app:cardElevation="@dimen/_10sdp"
         android:layout_alignParentEnd="true"
         android:gravity="center"
+
         >
 
         <include layout="@layout/right_drawer" />
