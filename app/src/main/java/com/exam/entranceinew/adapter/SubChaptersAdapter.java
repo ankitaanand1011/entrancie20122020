@@ -3,6 +3,7 @@ package com.exam.entranceinew.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.exam.entranceinew.ui.activity.studynotes.InstructionActivity;
 import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
 import com.exam.entranceinew.utils.ViewDialog;
@@ -72,6 +74,21 @@ public class SubChaptersAdapter extends RecyclerView.Adapter<SubChaptersAdapter.
             }
         });
 
+        assert name != null;
+        if(name.contains("Exercise")){
+            Log.d(TAG, "onBindViewHolder: exercise");
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, InstructionActivity.class);
+                    intent.putExtra("id",arr_study.get(position).get("id"));
+                    intent.putExtra("name",arr_study.get(position).get("name"));
+                    context.startActivity(intent);
+
+                }
+            });
+        }
     }
 
     @Override

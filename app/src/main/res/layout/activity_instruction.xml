@@ -22,6 +22,7 @@
 
 
             <TextView
+                android:id="@+id/tv_exam_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Exam Name"
@@ -42,43 +43,11 @@
                     android:padding="@dimen/_15sdp"
                     android:orientation="vertical">
 
-                    <TextView
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_instruction"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:drawableStart="@mipmap/correct"
-                        android:drawablePadding="10dp"
-                        android:text="Total Duration of this test is 30 minutes"
-                        android:textSize="@dimen/_14sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:drawableStart="@mipmap/correct"
-                        android:drawablePadding="10dp"
-                        android:text="Total questions for this test is 15."
-                        android:textSize="@dimen/_14sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:drawableStart="@mipmap/correct"
-                        android:drawablePadding="10dp"
-                        android:text="Each correct question will grant you 4 marks and total marks for test is 60."
-                        android:textSize="@dimen/_14sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:drawableStart="@mipmap/correct"
-                        android:drawablePadding="10dp"
-                        android:text="Each wrong question will grant you -1 marks and there is no negative marks for this test."
-                        android:textSize="@dimen/_14sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"/>
-
+                        />
 
 
                     <TextView

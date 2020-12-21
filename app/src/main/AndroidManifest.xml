@@ -108,17 +108,22 @@
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.onlinetest.InstructionActivity"
+        <activity android:name=".ui.activity.studynotes.InstructionActivity"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.NCERTSolution"
+        <activity android:name=".ui.activity.ncertsolution.NCERTSolution"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
-        <activity android:name=".ui.activity.NcertChapters"
+        <activity android:name=".ui.activity.ncertsolution.NcertChapters"
             android:theme="@style/ShopHopAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
+
+        <activity android:name=".ui.activity.studynotes.ExerciseActivity"
+            android:theme="@style/ShopHopAppTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+
 
     </application>
 

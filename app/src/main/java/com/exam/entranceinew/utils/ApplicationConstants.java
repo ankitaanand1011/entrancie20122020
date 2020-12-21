@@ -15,6 +15,8 @@ public class ApplicationConstants {
     public static final String login_using_password = baseApi+"user-login-password";
     public static final String reset_request_otp= baseApi+"user-password-reset-otp";
     public static final String notes_list = baseApi+"notes-get-student-subject";
+    public static final String notes_get_chapter_exercise_instruction = baseApi+"notes-get-chapter-exercise-instruction";
+    public static final String notes_get_chapter_exercise_question = baseApi+"notes-get-chapter-exercise-question";
     public static final String chapters_list = baseApi+"notes-get-chapter-list";
     public static final String sub_chapter_list = baseApi+"notes-get-sub-chapter-list";
     public static final String chapter_content = baseApi+"notes-get-chapter-content";

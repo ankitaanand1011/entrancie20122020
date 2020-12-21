@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_5sdp">
+    <TextView
+        android:id="@+id/tv_instruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:drawableStart="@mipmap/correct"
+        android:layout_centerVertical="true"
+        android:drawablePadding="10dp"
+        android:text="Total Duration of this test is 30 minutes"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginBottom="@dimen/_10sdp"/>
+</RelativeLayout>

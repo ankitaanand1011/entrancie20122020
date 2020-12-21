@@ -20,7 +20,7 @@ import com.exam.entranceinew.R;
 import com.exam.entranceinew.utils.Shared_Preference;
 import com.exam.entranceinew.SubjectData;
 import com.exam.entranceinew.utils.ViewDialog;
-import com.exam.entranceinew.ui.activity.onlinetest.InstructionActivity;
+import com.exam.entranceinew.ui.activity.studynotes.InstructionActivity;
 
 import java.util.ArrayList;
 

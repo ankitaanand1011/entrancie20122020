@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
 import com.exam.entranceinew.utils.ViewDialog;
-import com.exam.entranceinew.ui.activity.NcertChapters;
+
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 import java.util.ArrayList;
