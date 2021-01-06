@@ -85,8 +85,7 @@ public class ExerciseActivity extends AppCompatActivity  {
         wv_answer = findViewById(R.id.wv_answer);
         wv_question = findViewById(R.id.wv_question);
         rv_options = findViewById(R.id.rv_options);
-        tv_solution = findViewById(R.id.tv_solution);
-
+        tv_solution = findViewById(R.id.tv_solution);   
         wv_answer_description = findViewById(R.id.wv_answer_description);
 
 
@@ -214,20 +213,6 @@ public class ExerciseActivity extends AppCompatActivity  {
                                         tv_solution.setVisibility(View.GONE);
                                         wv_answer_description.setVisibility(View.GONE);
                                     }
-
-                                  /*  assert answer != null;
-                                    if(answer.contains("src")){
-                                        wv_answer.setVisibility(View.VISIBLE);
-                                        tv_answer.setVisibility(View.GONE);
-                                        // wv_answer.setText(Html.fromHtml(options_value));
-
-
-
-                                    }else{
-                                        tv_answer.setVisibility(View.VISIBLE);
-                                        wv_answer.setVisibility(View.GONE);
-                                        tv_answer.setText(Html.fromHtml(answer)+"Solution:\n"+Html.fromHtml(answer_description));
-                                    }*/
 
 
                                     rv_options.setLayoutManager(new LinearLayoutManager(ExerciseActivity.this, LinearLayoutManager.VERTICAL, false));

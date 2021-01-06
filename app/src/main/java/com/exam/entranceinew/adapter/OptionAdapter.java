@@ -79,7 +79,6 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
         ViewHolder(View itemView) {
             super(itemView);
 
-
             tv_option = itemView.findViewById(R.id.tv_option);
             iv_option = itemView.findViewById(R.id.iv_option);
             wv_option = itemView.findViewById(R.id.wv_option);

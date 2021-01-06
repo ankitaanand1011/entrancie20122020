@@ -228,9 +228,16 @@
             android:layout_marginTop="@dimen/_40sdp"
             android:layout_marginBottom="@dimen/_40sdp"
             android:gravity="center">
-
             <ImageView
                 android:id="@+id/ivAppLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_45sdp"
+                android:contentDescription="@string/app_name"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo_n" />
+
+            <ImageView
+               android:layout_below="@+id/ivAppLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_45sdp"
                 android:contentDescription="Entrancei App"
