@@ -21,17 +21,34 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.exam.entranceinew.R;
+import com.exam.entranceinew.utils.ApplicationConstants;
+import com.exam.entranceinew.utils.GlobalClass;
+import com.exam.entranceinew.utils.Shared_Preference;
+import com.exam.entranceinew.utils.ViewDialog;
+import com.google.gson.Gson;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
     String TAG ="profile";
     LinearLayout ll_qty;
-    TextView qty_spinner,tv_cancel;
+    TextView qty_spinner,tv_cancel,tv_name,tv_phn,tv_email,tv_class;
     RelativeLayout rl_password;
     ImageView iv_edit;
     LinearLayout ll_show_profile,ll_edit_profile;
+    GlobalClass globalClass;
+    Shared_Preference shared_preference;
+    ViewDialog mView;
+    EditText edit_fname,edit_lname,edit_phn,edit_email;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,6 +63,10 @@ public class ProfileFragment extends Fragment {
     }
 
     private void initialize_view(View view) {
+        globalClass = (GlobalClass)Objects.requireNonNull(getActivity()).getApplicationContext();
+        shared_preference = new Shared_Preference(getActivity());
+        shared_preference.loadPrefrence();
+        mView = new ViewDialog(getActivity());
         ll_qty = view.findViewById(R.id.ll_qty);
         qty_spinner = view.findViewById(R.id.qty_spinner);
         rl_password = view.findViewById(R.id.rl_password);
@@ -53,6 +74,14 @@ public class ProfileFragment extends Fragment {
         ll_show_profile = view.findViewById(R.id.ll_show_profile);
         ll_edit_profile = view.findViewById(R.id.ll_edit_profile);
         tv_cancel = view.findViewById(R.id.tv_cancel);
+        tv_name = view.findViewById(R.id.tv_name);
+        tv_phn = view.findViewById(R.id.tv_phn);
+        tv_email = view.findViewById(R.id.tv_email);
+        tv_class = view.findViewById(R.id.tv_class);
+        edit_fname = view.findViewById(R.id.edit_fname);
+        edit_lname = view.findViewById(R.id.edit_lname);
+        edit_phn = view.findViewById(R.id.edit_phn);
+        edit_email = view.findViewById(R.id.edit_email);
     }
 
     private void functions() {
@@ -63,6 +92,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        user_profile();
         rl_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,6 +200,128 @@ public class ProfileFragment extends Fragment {
         dialog.show();
 
 
+    }
+
+    private void user_profile() {
+        // Tag used to cancel the request
+
+        final String tag_string_req = "user_profile";
+
+        mView.showDialog();
+        String url = ApplicationConstants.user_profile;
+        Log.d(TAG, "user_profile: url >> "+url);
+        JSONObject js = new JSONObject();
+        try {
+
+            js.put("request_key",  globalClass.getRequest_key());
+            js.put("request_token", globalClass.getRequest_token());
+            js.put("device", "mobile");
+            js.put("user_token", globalClass.getUser_token());
+          //  js.put("country_code", ccp.getSelectedCountryCode());
+
+            Log.d(TAG, "user_profile: js >  "+js.toString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try{
+            JsonObjectRequest jsonObjReq = new JsonObjectRequest(
+                    Request.Method.POST, url, js,
+                    new Response.Listener<JSONObject>() {
+
+
+                        @Override
+                        public void onResponse(JSONObject jobj) {
+                            Log.d(TAG, "user_profile Response: " + jobj);
+
+
+                            Gson gson = new Gson();
+
+                            try {
+
+
+                                String result =jobj.getString("result");
+                                String message =jobj.getString("message");
+                                Log.d(TAG, "Message: "+message);
+
+
+                                if(result.equals("true")) {
+
+                                    JSONObject data = jobj.getJSONObject("data");
+                                    String id = data.getString("id");
+                                    String first_name = data.getString("first_name");
+                                    String last_name = data.getString("last_name");
+                                    String email = data.getString("email");
+                                    String country_code = data.getString("country_code");
+                                    String mobile = data.getString("mobile");
+                                    String student_class_name = data.getString("student_class_name");
+
+                                    Log.d(TAG, "onResponse:request_key>>>> " + mobile);
+                                    Log.d(TAG, "onResponse:request_token>>> " + country_code);
+
+                                    //globalClass.setRequest_token(request_token);
+                                    globalClass.setPhone_number(mobile);
+                                    shared_preference.savePrefrence();
+
+
+                                    tv_name.setText("Hi, "+first_name+" "+last_name);
+                                    tv_phn.setText(country_code+" "+mobile);
+                                    tv_email.setText(email);
+                                    tv_class.setText(student_class_name);
+                                    edit_fname.setText(first_name);
+                                    edit_lname.setText(last_name);
+                                    edit_phn.setText(country_code+" "+mobile);
+                                    edit_email.setText(email);
+                                    qty_spinner.setText(student_class_name);
+
+
+                                    mView.hideDialog();
+                                    Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                                    Log.d(TAG, "onSuccess:id "+message);
+                                }else {
+
+                                    mView.hideDialog();
+                                    Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                                }
+
+
+
+                            }catch (Exception e){
+                                e.printStackTrace();
+
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                @Override
+
+                public void onErrorResponse(VolleyError error) {
+                    Log.e(TAG, "user_profile Error: " + error.getMessage());
+                    Toast.makeText(getActivity(),
+                            "Connection Error", Toast.LENGTH_LONG).show();
+                    //  pd.dismiss();
+                    mView.hideDialog();
+                }
+            }) {
+
+                @Override
+                protected Map<String, String> getParams() {
+                    // Posting parameters to login url
+                    Map<String, String> params = new HashMap<>();
+
+
+                    return params;
+                }
+
+            };
+
+            // Volley.newRequestQueue(Objects.requireNonNull(getActivity())).add(jsonObjReq);
+            globalClass.addToRequestQueue(getActivity(), jsonObjReq, tag_string_req);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }
