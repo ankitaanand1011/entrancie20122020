@@ -1,5 +1,6 @@
 package com.exam.entranceinew.ui.activity.usersection;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,7 +39,7 @@ public class LoginScreen extends AppCompatActivity {
     
     ViewDialog mView;
     EditText email_edt,password_edt,mobile_edt,otp_edt;
-    TextView tv_otp,tv_password,get_otp_tv,submit_otp_tv;
+    TextView tv_otp,tv_password,get_otp_tv,submit_otp_tv,regenerate_otp_tv;
     EditText input_layout_otp;
     CountryCodePicker ccp;
     LinearLayout ll_gt_otp,ll_password,ll_otp;
@@ -70,6 +71,7 @@ public class LoginScreen extends AppCompatActivity {
         ll_otp = findViewById(R.id.ll_otp);
         submit_otp_tv = findViewById(R.id.submit_otp_tv);
         submit_tv_password = findViewById(R.id.submit_tv_password);
+        regenerate_otp_tv = findViewById(R.id.regenerate_otp_tv);
 
 
       /*  if(globalClass.getLogin_status()){
@@ -105,6 +107,21 @@ public class LoginScreen extends AppCompatActivity {
                 if(globalClass.isNetworkAvailable()) {
                     if (!mobile_edt.getText().toString().trim().isEmpty()) {
                         request_otp(mobile_edt.getText().toString());
+                    } else {
+                        Toast.makeText(LoginScreen.this, "Please enter the mobile number.", Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Toast.makeText(LoginScreen.this,  "Check your internet connection.", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        regenerate_otp_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(globalClass.isNetworkAvailable()) {
+                    if (!mobile_edt.getText().toString().trim().isEmpty()) {
+                       // regenerate_otp(mobile_edt.getText().toString());
                     } else {
                         Toast.makeText(LoginScreen.this, "Please enter the mobile number.", Toast.LENGTH_LONG).show();
                     }
@@ -154,6 +171,7 @@ public class LoginScreen extends AppCompatActivity {
 
 
     }
+    @SuppressLint("NonConstantResourceId")
     public void onClick(View view) {
         switch (view.getId()) {
 
@@ -179,6 +197,8 @@ public class LoginScreen extends AppCompatActivity {
                 tv_otp.setBackgroundColor(getResources().getColor(R.color.white));
                 tv_otp.setTextColor(getResources().getColor(R.color.blue_gradient));
                 break;
+
+
 
         }
     }
@@ -232,9 +252,111 @@ public class LoginScreen extends AppCompatActivity {
                             Toast.makeText(LoginScreen.this, message, Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "onSuccess:id "+message);
                         }else {
-
                             mView.hideDialog();
-                            Toast.makeText(LoginScreen.this, message, Toast.LENGTH_LONG).show();
+                            get_otp_tv.setVisibility(View.GONE);
+                            regenerate_otp_tv.setVisibility(View.VISIBLE);
+                           // Toast.makeText(LoginScreen.this, message, Toast.LENGTH_LONG).show();
+                        }
+
+
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+
+                @Override
+
+                public void onErrorResponse(VolleyError error) {
+                    Log.e(TAG, "registration Error: " + error.getMessage());
+                    Toast.makeText(getApplicationContext(),
+                            "Connection Error", Toast.LENGTH_LONG).show();
+                    //  pd.dismiss();
+                    mView.hideDialog();
+                }
+            }) {
+
+                @Override
+                protected Map<String, String> getParams() {
+                    // Posting parameters to login url
+                    Map<String, String> params = new HashMap<>();
+
+                    params.put("request_key", globalClass.getRequest_key());
+                    params.put("request_token", globalClass.getRequest_token());
+                    params.put("device", "mobile");
+                    params.put("mobile", mobile);
+                    params.put("country_code", ccp.getSelectedCountryCode());
+
+
+
+                    return params;
+                }
+
+            };
+
+            globalClass.addToRequestQueue(LoginScreen.this, strReq, tag_string_req);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void regenerate_otp( final String mobile) {
+        // Tag used to cancel the request
+        final String tag_string_req = "req_login";
+
+        mView.showDialog();
+        String url = ApplicationConstants.login_otp_request;
+        try{
+            StringRequest strReq = new StringRequest(Request.Method.POST,
+                    url, new Response.Listener<String>(){
+
+
+                @Override
+                public void onResponse(String response) {
+                    Log.d(TAG, "registration Response: " + response);
+
+
+                    Gson gson = new Gson();
+
+                    try {
+
+                        JsonObject jobj = gson.fromJson(response, JsonObject.class);
+                        String result = jobj.get("result").getAsString().replaceAll("\"", "");
+                        String message = jobj.get("message").getAsString().replaceAll("\"", "");
+
+
+                        Log.d(TAG, "Message: "+message);
+
+                        //if(status.equals("1")) {
+                        if(result.equals("true")) {
+                            ///  showOptDialog(mobile);
+                            JsonObject data = jobj.getAsJsonObject("data");
+                            String mobile = data.get("mobile").getAsString().replaceAll("\"", "");
+                            String country_code = data.get("country_code").getAsString().replaceAll("\"", "");
+
+                            Log.d(TAG, "onResponse:request_key>>>> " + mobile);
+                            Log.d(TAG, "onResponse:request_token>>> " + country_code);
+
+                            //globalClass.setRequest_token(request_token);
+                            globalClass.setPhone_number(mobile);
+                            shared_preference.savePrefrence();
+
+
+                            get_otp_tv.setVisibility(View.GONE);
+                            ll_otp.setVisibility(View.VISIBLE);
+                            mobile_edt.setEnabled(false);
+                            mView.hideDialog();
+                            Toast.makeText(LoginScreen.this, message, Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "onSuccess:id "+message);
+                        }else {
+                            mView.hideDialog();
+                            get_otp_tv.setVisibility(View.GONE);
+                            regenerate_otp_tv.setVisibility(View.VISIBLE);
+                            // Toast.makeText(LoginScreen.this, message, Toast.LENGTH_LONG).show();
                         }
 
 
@@ -314,6 +436,10 @@ public class LoginScreen extends AppCompatActivity {
                         //if(status.equals("1")) {
                         if(result.equals("true")) {
                             ///  showOptDialog(mobile);
+                            get_otp_tv.setVisibility(View.GONE);
+                            ll_otp.setVisibility(View.VISIBLE);
+                            mobile_edt.setEnabled(true);
+
                             JsonObject data = jobj.getAsJsonObject("data");
                             String token = data.get("token").getAsString().replaceAll("\"", "");
                             String mobile = data.get("mobile").getAsString().replaceAll("\"", "");
@@ -338,9 +464,7 @@ public class LoginScreen extends AppCompatActivity {
 
 
 
-                            get_otp_tv.setVisibility(View.GONE);
-                            ll_otp.setVisibility(View.VISIBLE);
-                            mobile_edt.setEnabled(true);
+
 
                             Toast.makeText(LoginScreen.this, message, Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "onSuccess:id "+message);
