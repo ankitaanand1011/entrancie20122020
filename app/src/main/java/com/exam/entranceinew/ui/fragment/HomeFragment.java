@@ -46,10 +46,10 @@ public class HomeFragment extends Fragment {
         ArrayList<CategoryData> arrayList = new ArrayList<CategoryData>();
         arrayList.add(new CategoryData("NCERT Solutions", R.mipmap.my_reader, R.color.darkred));
         arrayList.add(new CategoryData("Reference Books", R.mipmap.book, R.color.darkgreen));
-        arrayList.add(new CategoryData("Online Test", R.mipmap.my_exam, R.color.darkpurple));
+        //arrayList.add(new CategoryData("Online Test", R.mipmap.my_exam, R.color.darkpurple));
         arrayList.add(new CategoryData("Study Notes", R.mipmap.post_it, R.color.darkorange));
-        arrayList.add(new CategoryData("Sample Papers", R.mipmap.paper, R.color.blue));
-        arrayList.add(new CategoryData("Study Materials", R.mipmap.material, R.color.darkred));
+        arrayList.add(new CategoryData("Sample Papers", R.mipmap.paper, R.color.darkpurple));
+     //   arrayList.add(new CategoryData("Study Materials", R.mipmap.material, R.color.darkred));
 
 
         rvHome.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));

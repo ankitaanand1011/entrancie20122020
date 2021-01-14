@@ -188,6 +188,21 @@
                             android:background="@drawable/gradient_bg"
                             />
 
+                        <TextView
+                            android:id="@+id/regenerate_otp_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:padding="10dp"
+                            android:text="Regenerate OTP"
+                            android:onClick="onClick"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:textSize="@dimen/_14sdp"
+                            android:gravity="center"
+                            android:background="@drawable/gradient_bg"
+                            />
 
                         <LinearLayout
                             android:id="@+id/ll_otp"
