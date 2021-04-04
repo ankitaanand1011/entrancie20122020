@@ -242,6 +242,7 @@ public class LoginScreen extends AppCompatActivity {
 
                             //globalClass.setRequest_token(request_token);
                             globalClass.setPhone_number(mobile);
+                            globalClass.setCountry_code(country_code);
                             shared_preference.savePrefrence();
 
 
@@ -447,6 +448,7 @@ public class LoginScreen extends AppCompatActivity {
                             String email = data.get("email").getAsString().replaceAll("\"", "");
                             String first_name = data.get("first_name").getAsString().replaceAll("\"", "");
                             String last_name = data.get("last_name").getAsString().replaceAll("\"", "");
+                            String student_class_name = data.get("student_class_name").getAsString().replaceAll("\"", "");
 
                             Log.d(TAG, "onResponse:email>>>> " + email);
                             Log.d(TAG, "onResponse:last_name>>> " + last_name);
@@ -459,6 +461,7 @@ public class LoginScreen extends AppCompatActivity {
                             globalClass.setF_name(first_name);
                             globalClass.setL_name(last_name);
                             globalClass.setUser_token(token);
+                            globalClass.setClass_name(student_class_name);
                             globalClass.setLogin_status(true);
                             shared_preference.savePrefrence();
 

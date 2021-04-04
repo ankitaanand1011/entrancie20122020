@@ -4,43 +4,105 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_10sdp"
+
     android:background="@android:color/transparent"
   >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        android:background="@drawable/home_bg">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        >
 
 
         <RelativeLayout
             android:id="@+id/rl_bg"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/_10sdp">
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_10sdp"
 
-            <ImageView
-                android:id="@+id/iv_image"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_alignParentEnd="true"
-                android:src="@mipmap/book"
-                android:tint="@color/white_opacity_1"
+
+
+            >
+
+
+            <RelativeLayout
+                android:id="@+id/profile_image_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:padding="@dimen/_10sdp"
-                android:layout_centerVertical="true"/>
+
+                android:background="@drawable/home_bg"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@mipmap/ic_reference_book"
+                    android:tint="@color/white"
+
+                   />
 
 
-            <TextView
-                android:id="@+id/tv_name"
+
+            </RelativeLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="topic name"
-                android:textSize="@dimen/_16sdp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
+                android:layout_toEndOf="@+id/profile_image_rl"
+                android:layout_toStartOf="@+id/image_next"
+                android:layout_centerVertical="true"
                 android:padding="@dimen/_10sdp"
-                android:layout_centerVertical="true"/>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_topic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="topic name"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/colorGrey"
+
+
+                   />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="topic name"
+                    android:textSize="@dimen/_14sdp"
+
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+
+                   />
+                <TextView
+                    android:id="@+id/tv_chapters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chapter name1, Chapter name2"
+                    android:textSize="@dimen/_12sdp"
+
+                    android:textColor="@color/colorGrey"
+
+
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/image_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@mipmap/arrow_next"
+                android:padding="@dimen/_10sdp"
+                android:layout_centerVertical="true"
+                android:tint="@color/colorAccent"/>
 
 
         </RelativeLayout>

@@ -16,6 +16,36 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
+    <string name="minimum_length">Minimum password length is 6.</string>
+    <string name="enter_mobile">Please enter mobile number.</string>
+    <string name="enter_password">Please enter password</string>
+    <string name="enter_confirm_password">Please enter confirm password.</string>
+    <string name="valid_email">Please enter valid email.</string>
+    <string name="enter_email">Please enter email.</string>
+    <string name="enter_last_name">Please enter last name.</string>
+    <string name="enter_first_name">Please enter first name.</string>
+    <string name="renter_password">Please renter the new password.</string>
+    <string name="enter_new_password">Please enter the new password.</string>
+    <string name="enter_code">Please enter the code.</string>
+    <string name="wrong_otp">Wrong OTP.</string>
+    <string name="password_changed">Password changed successfully.</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="sent_code">We have sent the code to your registered email.</string>
+    <string name="enter_code_here">Enter Code</string>
+    <string name="new_password">New password</string>
+    <string name="old_password">Old password</string>
+    <string name="enter_old_password">Please enter the old password.</string>
+    <string name="old_pass_not_matched">Old password does not match.</string>
+
+
+    <string name="ncert_solutions">NCERT Solutions</string>
+    <string name="subject_chapters">Subject Chapters</string>
+    <string name="reference_books">Reference Book</string>
+    <string name="online_test">Online Test</string>
+  <!--  <string name=""></string>-->
+
+
+
     <string-array name="class_array">
         <item>Class 7</item>
         <item>Class 8</item>

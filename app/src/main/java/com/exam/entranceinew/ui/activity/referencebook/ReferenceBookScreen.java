@@ -40,6 +40,7 @@ public class ReferenceBookScreen extends AppCompatActivity {
     ReferenceBookAdapter referenceBookAdapter;
     ImageView iv_back;
     TextView tv_header;
+    String match_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +62,8 @@ public class ReferenceBookScreen extends AppCompatActivity {
         rvStudyNotes.setLayoutManager(new LinearLayoutManager(ReferenceBookScreen.this, LinearLayoutManager.VERTICAL, false));
     }
     private void function() {
-
-        tv_header.setText("Reference Books");
+        match_id = getIntent().getStringExtra("ids");
+        tv_header.setText("Chapters");
         arr_study = new ArrayList<>();
         reference_book();
 
@@ -77,17 +78,18 @@ public class ReferenceBookScreen extends AppCompatActivity {
     private void reference_book() {
         mView.showDialog();
         final String tag_string_req = "reference_book";
-        String url = ApplicationConstants.reference_book;
-        Log.d(TAG, "notes_list: url >>> "+url);
+        String url = ApplicationConstants.books_section_description;
+        Log.d(TAG, "book_list: url >>> "+url);
         JSONObject js = new JSONObject();
         try {
 
             js.put("request_key",  globalClass.getRequest_key());
             js.put("request_token", globalClass.getRequest_token());
-            js.put("user_token", globalClass.getUser_token());
+            js.put("book_id",getIntent().getStringExtra("book_id"));
             js.put("device", "mobile");
 
             Log.d(TAG, "reference_book: js >  "+js.toString());
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -110,21 +112,49 @@ public class ReferenceBookScreen extends AppCompatActivity {
 
 
                                 if(result.equals("true")) {
+                                    JSONObject data = jobj.getJSONObject("data");
 
-                                    JSONArray data = jobj.getJSONArray("data");
-                                    for( int i = 0 ; i < data.length() ; i++ ) {
+                                    String id = data.getString("id");
+                                    String name = data.getString("name");
+                                    String top_description = data.getString("top_description");
+                                    String bottom_description = data.getString("bottom_description");
 
-                                        JSONObject obj_data = data.getJSONObject(i);
-                                        String id = obj_data.getString("id");
-                                        String name = obj_data.getString("name");
 
-                                        Log.d(TAG, "onResponse:name>>>> " + name);
-                                        Log.d(TAG, "onResponse:id>>> " + id);
+                                    JSONArray section_list = data.getJSONArray("section_list");
+                                    Log.d(TAG, "onResponse: data>>"+data);
+                                    for( int i = 0 ; i < section_list.length() ; i++ ) {
 
-                                        HashMap<String, String> hashMap = new HashMap<>();
-                                        hashMap.put("id", id);
-                                        hashMap.put("name", name);
-                                        arr_study.add(hashMap);
+                                        JSONObject obj_data = section_list.getJSONObject(i);
+                                        String ids = obj_data.getString("id");
+
+                                        String section_name = obj_data.getString("section_name");
+
+                                        Log.d(TAG, "onResponse: section_name"+section_name);
+
+                                        Log.d(TAG, "onResponse: hello");
+
+                                        if(ids.matches(match_id)){
+
+                                            JSONArray solutions = obj_data.getJSONArray("solutions");
+                                            Log.d(TAG, "onResponse: sol"+solutions);
+                                            for( int j = 0 ; j < solutions.length() ; j++ ) {
+                                                JSONObject obj_solution = solutions.getJSONObject(j);
+
+                                                String id_sol = obj_solution.getString("id");
+                                                String title = obj_solution.getString("title");
+
+
+                                                Log.d(TAG, "onResponse:id>>> " + ids);
+                                                Log.d(TAG, "onResponse:section_name>>> " + ids);
+                                                //     arr_sections.add(title);
+                                                HashMap<String, String> hashMap1 = new HashMap<>();
+                                                hashMap1.put("id_sol", id_sol);
+                                                hashMap1.put("title", title);
+                                                arr_study.add(hashMap1);
+                                            }
+                                        }
+                                     //   listDataChild.put(arr_section_header.get(i), section);
+
                                     }
 
 

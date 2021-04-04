@@ -44,13 +44,15 @@
     <color name="text_bg_blue">#EAECEE</color>
     <color name="bg_blue">#F4F5F6</color>
 
- <item name="blue" type="color">#61a6f1</item>
- <item name="darkblue" type="color">#f8ae59</item>
- <item name="darkpurple" type="color">#756fc7</item>
- <item name="darkgreen" type="color">#f87758</item>
- <item name="darkpink" type="color">#E14E81</item>
- <item name="darkorange" type="color">#F7B059</item>
- <item name="darkred" type="color">#ad71c9</item>
+ <item name="blue" type="color">       #61a6f1</item>
+ <item name="darkblue" type="color">   #f8ae59</item>
+ <item name="darkpurple" type="color"> #756fc7</item>
+ <item name="darkgreen" type="color">  #f87758</item>
+ <item name="darkpink" type="color">   #E14E81</item>
+ <item name="darkorange" type="color"> #F7B059</item>
+ <item name="darkred" type="color">    #ad71c9</item>
+ <item name="d_green" type="color">    #A1E465</item>
+ <item name="peach" type="color">      #F1BF62</item>
 
 
  <integer-array name="androidcolors">

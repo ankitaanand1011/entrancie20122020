@@ -33,7 +33,6 @@
                 android:layout_centerInParent="true"
                 android:textColor="@color/colorAccent"
                 android:layout_marginStart="@dimen/_5sdp"
-                android:singleLine="true"
                 android:padding="@dimen/_5sdp"
                 android:textSize="@dimen/_14sdp"/>
 
@@ -43,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/_5sdp"
+                android:visibility="gone"
                 android:padding="10dp"
                 android:src="@mipmap/more"/>
         </RelativeLayout>
@@ -59,14 +59,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="@dimen/_10sdp"
+
             tools:ignore="WebViewLayout">
 
             <WebView
                 android:id="@+id/topwebview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPdfList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+
+                />
 
 
 
@@ -74,6 +83,7 @@
                 android:id="@+id/bottomwebview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/_10sdp"
                 />
 

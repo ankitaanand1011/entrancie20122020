@@ -26,6 +26,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.exam.entranceinew.utils.ApplicationConstants;
 import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
 import com.exam.entranceinew.utils.Shared_Preference;
@@ -33,8 +38,13 @@ import com.exam.entranceinew.utils.ViewDialog;
 import com.exam.entranceinew.ui.activity.usersection.LoginScreen;
 import com.exam.entranceinew.ui.fragment.HomeFragment;
 import com.exam.entranceinew.ui.fragment.ProfileFragment;
+import com.google.gson.Gson;
 
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import me.ibrahimsn.lib.OnItemSelectedListener;
@@ -181,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        user_profile();
     }
 
     @Override
@@ -236,5 +248,123 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         // transaction.addToBackStack("home_frag");
         transaction.commit();
+    }
+
+    private void user_profile() {
+        // Tag used to cancel the request
+
+        final String tag_string_req = "user_profile";
+
+        mView.showDialog();
+        String url = ApplicationConstants.user_profile;
+        Log.d(TAG, "user_profile: url >> "+url);
+        JSONObject js = new JSONObject();
+        try {
+
+            js.put("request_key",  globalClass.getRequest_key());
+            js.put("request_token", globalClass.getRequest_token());
+            js.put("device", "mobile");
+            js.put("user_token", globalClass.getUser_token());
+            //  js.put("country_code", ccp.getSelectedCountryCode());
+
+            Log.d(TAG, "user_profile: js >  "+js.toString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try{
+            JsonObjectRequest jsonObjReq = new JsonObjectRequest(
+                    Request.Method.POST, url, js,
+                    new Response.Listener<JSONObject>() {
+
+
+                        @Override
+                        public void onResponse(JSONObject jobj) {
+                            Log.d(TAG, "user_profile Response: " + jobj);
+
+
+                            Gson gson = new Gson();
+
+                            try {
+
+
+                                String result =jobj.getString("result");
+                                String message =jobj.getString("message");
+                                Log.d(TAG, "Message: "+message);
+
+
+                                if(result.equals("true")) {
+
+                                    JSONObject data = jobj.getJSONObject("data");
+                                    String id = data.getString("id");
+                                    String first_name = data.getString("first_name");
+                                    String last_name = data.getString("last_name");
+                                    String email = data.getString("email");
+                                    String country_code = data.getString("country_code");
+                                    String mobile = data.getString("mobile");
+                                    String student_class_name = data.getString("student_class_name");
+
+                                    Log.d(TAG, "onResponse:request_key>>>> " + mobile);
+                                    Log.d(TAG, "onResponse:request_token>>> " + country_code);
+
+                                    //globalClass.setRequest_token(request_token);
+                                    globalClass.setPhone_number(mobile);
+                                    globalClass.setCountry_code(country_code);
+                                    globalClass.setClass_name(student_class_name);
+                                    globalClass.setPhone_number(mobile);
+                                    globalClass.setEmail(email);
+                                    globalClass.setF_name(first_name);
+                                    globalClass.setL_name(last_name);
+                                    shared_preference.savePrefrence();
+
+
+
+                                    mView.hideDialog();
+                                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+                                    Log.d(TAG, "onSuccess:id "+message);
+                                }else {
+
+                                    mView.hideDialog();
+                                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                                }
+
+
+
+                            }catch (Exception e){
+                                e.printStackTrace();
+
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                @Override
+
+                public void onErrorResponse(VolleyError error) {
+                    Log.e(TAG, "user_profile Error: " + error.getMessage());
+                    Toast.makeText(MainActivity.this,
+                            "Connection Error", Toast.LENGTH_LONG).show();
+                    //  pd.dismiss();
+                    mView.hideDialog();
+                }
+            }) {
+
+                @Override
+                protected Map<String, String> getParams() {
+                    // Posting parameters to login url
+                    Map<String, String> params = new HashMap<>();
+
+
+                    return params;
+                }
+
+            };
+
+            // Volley.newRequestQueue(Objects.requireNonNull(getActivity())).add(jsonObjReq);
+            globalClass.addToRequestQueue(MainActivity.this, jsonObjReq, tag_string_req);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

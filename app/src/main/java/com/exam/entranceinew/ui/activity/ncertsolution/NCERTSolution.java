@@ -1,6 +1,7 @@
 package com.exam.entranceinew.ui.activity.ncertsolution;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.exam.entranceinew.utils.ApplicationConstants;
+import com.exam.entranceinew.utils.ExpandableTextView;
 import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
 import com.exam.entranceinew.utils.Shared_Preference;
@@ -38,6 +40,7 @@ public class NCERTSolution extends AppCompatActivity {
     private ArrayList<HashMap<String, String>> ncert_arr;
     TextView tv_header,tv_class_name;
     ImageView iv_back;
+    ExpandableTextView ex_tv;
     //List<String> ncert_arr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +58,13 @@ public class NCERTSolution extends AppCompatActivity {
         iv_back = findViewById(R.id.iv_back);
         tv_header = findViewById(R.id.tv_header);
         rvNcertSol = findViewById(R.id.rvNcertSol);
-        tv_class_name = findViewById(R.id.tv_class_name);
+        ex_tv = findViewById(R.id.ex_tv);
+
         rvNcertSol.setNestedScrollingEnabled(false);
     }
     private void function() {
 
-        tv_header.setText("NCERT Solutions");
+        tv_header.setText(getIntent().getStringExtra("name"));
         ncert_arr = new ArrayList<>();
         ncert_get_chapters();
 
@@ -87,7 +91,7 @@ public class NCERTSolution extends AppCompatActivity {
     private void ncert_get_chapters() {
         mView.showDialog();
         final String tag_string_req = "ncert_get_chapters";
-        String url = ApplicationConstants.ncert_get_chapters;
+        String url = ApplicationConstants.ncert_solution_description;
         Log.d(TAG, "ncert_get_chapters: url >>> "+url);
         JSONObject js = new JSONObject();
         try {
@@ -95,6 +99,7 @@ public class NCERTSolution extends AppCompatActivity {
             js.put("request_key",  globalClass.getRequest_key());
             js.put("request_token", globalClass.getRequest_token());
             js.put("user_token", globalClass.getUser_token());
+            js.put("ncert_solution_id", getIntent().getStringExtra("value"));
             js.put("device", "mobile");
 
             Log.d(TAG, "ncert_get_chapters: js >  "+js.toString());
@@ -121,25 +126,28 @@ public class NCERTSolution extends AppCompatActivity {
 
                                 if(result.equals("true")) {
                                    JSONObject data = jobj.getJSONObject("data");
-                                   String student_class_name = data.getString("student_class_name");
-                                   JSONArray subject_list = data.getJSONArray("topic_list");
-                                   // JSONArray subject_list = jobj.getJSONArray("data");
-                                    for( int i = 0 ; i < subject_list.length() ; i++ ) {
+                                   String id = data.getString("id");
+                                   String name = data.getString("name");
+                                   String description = data.getString("description");
 
-                                        JSONObject obj_data = subject_list.getJSONObject(i);
-                                        String id = obj_data.getString("id");
-                                        String name = obj_data.getString("name");
+                                   JSONArray topic_discussion_list = data.getJSONArray("topic_discussion_list");
+                                   // JSONArray subject_list = jobj.getJSONArray("data");
+                                    for( int i = 0 ; i < topic_discussion_list.length() ; i++ ) {
+
+                                        JSONObject obj_data = topic_discussion_list.getJSONObject(i);
+                                        String id_val = obj_data.getString("id");
+                                        String name_val = obj_data.getString("name");
 
                                         Log.d(TAG, "onResponse:name>>>> " + name);
                                         Log.d(TAG, "onResponse:id>>> " + id);
 
                                         HashMap<String, String> hashMap = new HashMap<>();
-                                        hashMap.put("id", id);
-                                        hashMap.put("name", name);
+                                        hashMap.put("id_val", id_val);
+                                        hashMap.put("name_val", name_val);
                                         ncert_arr.add(hashMap);
                                     }
-                                    tv_class_name.setText("NCERT Solutions for "+student_class_name);
-
+                              //      tv_class_name.setText("NCERT Solutions for "+student_class_name);
+                                    ex_tv.setText(Html.fromHtml(description));
                                     rvNcertSol.setLayoutManager(new LinearLayoutManager(NCERTSolution.this, LinearLayoutManager.VERTICAL, false));
                                     SolutionsAdapter solutionsAdapter = new SolutionsAdapter(NCERTSolution.this,ncert_arr);
                                     rvNcertSol.setAdapter(solutionsAdapter);

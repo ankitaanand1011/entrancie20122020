@@ -47,7 +47,16 @@ public class SolutionsAdapter extends RecyclerView.Adapter<SolutionsAdapter.View
     public void onBindViewHolder(final SolutionsAdapter.ViewHolder holder, final int position) {
 
        // String name = arr_study.get(position).get("name");
-        String name = ncert_arr.get(position).get("name");
+        String name = ncert_arr.get(position).get("name_val");
+
+
+      ///  String[] arrayString = name.split("NCERT Solutions Class-7 Maths");
+
+       // String email = arrayString[0];
+       // String title = arrayString[0];
+//        String body = arrayString[1];
+
+
         holder.tv_name.setText(name);
 
         int[] androidColors = context.getResources().getIntArray(R.array.androidcolors);

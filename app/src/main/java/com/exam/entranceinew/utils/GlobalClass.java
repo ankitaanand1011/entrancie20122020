@@ -19,7 +19,7 @@ public class GlobalClass extends Application {
 
     public Boolean login_status = false;
     public Boolean install_first_time = false;
-    String id,  f_name, l_name, email, phone_number, user_type, device_type, fcm_reg_token, deviceid, profle_image;
+    String id,  f_name, l_name, email, phone_number, user_type, device_type, fcm_reg_token, deviceid, profle_image,class_name;
     String eid, jsondata, sliderpics, comments_1, chatfetch, mediafetch, eventfetch;
     public String notification;
     public String FCM;
@@ -33,6 +33,7 @@ public class GlobalClass extends Application {
     String fcm_token_val;
     String request_key, request_token;
     String  user_token;
+    String  country_code;
     private static RequestQueue mRequestQueue;
  //   private static RequestQueue mRequestQueue;
  public  <T> void addToRequestQueue(Context mContext, Request<T> request, String tag) {
@@ -156,6 +157,22 @@ public class GlobalClass extends Application {
 
     public void setUser_token(String user_token) {
         this.user_token = user_token;
+    }
+
+    public String getCountry_code() {
+        return country_code;
+    }
+
+    public void setCountry_code(String country_code) {
+        this.country_code = country_code;
+    }
+
+    public String getClass_name() {
+        return class_name;
+    }
+
+    public void setClass_name(String class_name) {
+        this.class_name = class_name;
     }
 
     public String getDevice_type() {

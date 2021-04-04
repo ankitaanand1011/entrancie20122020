@@ -68,10 +68,9 @@
                             android:id="@+id/civProfile"
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="@dimen/_100sdp"
-                            android:src="@drawable/student_profile_1"
+                            android:src="@mipmap/graduated"
                             android:layout_gravity="center_horizontal"
                             app:civ_border_width="@dimen/_2sdp"
-
                             app:civ_border_color="@color/colorPrimaryDark"
                             />
 
@@ -81,7 +80,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/_8sdp"
                             android:gravity="center_horizontal"
-                            android:text="Hi, Guest"
                             android:textStyle="bold"
                             android:textColor="@color/dark_grey"
                             android:textSize="@dimen/_18sdp" />
@@ -98,7 +96,6 @@
                                 android:layout_weight="1.5"
 
                                 android:gravity="center_horizontal"
-                                android:text="9876545678"
                                 android:textColor="@color/dark_grey"
                                 android:textSize="@dimen/_14sdp" />
                             <TextView
@@ -107,17 +104,17 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center_horizontal"
-                                android:text="ankitaanand@gmail.com"
                                 android:layout_marginStart="@dimen/_2sdp"
                                 android:textColor="@color/dark_grey"
                                 android:textSize="@dimen/_14sdp" />
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/tv_class"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="Class 7"
+
                             android:textColor="@color/dark_grey"
                             android:textSize="@dimen/_14sdp"
                           />
@@ -136,7 +133,7 @@
                             android:id="@+id/civProfile_edit"
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="@dimen/_100sdp"
-                            android:src="@drawable/student_profile_1"
+                            android:src="@mipmap/graduated"
                             android:layout_gravity="center_horizontal"
                             app:civ_border_width="@dimen/_2sdp"
                             app:civ_border_color="@color/colorPrimaryDark"
@@ -149,6 +146,7 @@
                             android:textColor="@color/dark_grey"
                             android:textSize="@dimen/_10sdp"
                             android:layout_gravity="center"
+                            android:visibility="gone"
                             android:layout_marginTop="@dimen/_5sdp"
                             tools:ignore="MissingPrefix"/>
                         <LinearLayout
@@ -231,6 +229,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Class"
+                                android:visibility="gone"
                                 android:textColor="@color/dark_grey"
                                 android:textSize="@dimen/_12sdp"
                                 tools:ignore="MissingPrefix"/>
@@ -365,6 +364,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
+                    android:visibility="gone"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
                     android:paddingBottom="10dp">

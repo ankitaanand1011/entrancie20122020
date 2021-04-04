@@ -27,6 +27,13 @@ public class ApplicationConstants {
     public static final String ncert_sol_get_content = baseApi+"ncert-solutions-get-content";
     public static final String ncert_sol_get_section= baseApi+"ncert-solutions-get-sections";
     public static final String user_profile= baseApi+"api-get-user-profile";
+    public static final String update_profile= baseApi+"api-update-user-profile";
+    public static final String change_password= baseApi+"api-change-user-password";
+    public static final String dashboard_url= baseApi+"get-user-dashboard";
+    public static final String notes_subject_description= baseApi+"notes-get-subject-description";
+    public static final String books_section_description= baseApi+"books-get-book-description-and-sections";
+    public static final String books_solution_description= baseApi+"books-get-book-solution-description";
+    public static final String ncert_solution_description= baseApi+"ncert-solutions-get-sections-and-description";
 
 
 

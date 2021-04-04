@@ -1,6 +1,7 @@
 package com.exam.entranceinew.ui.activity.studynotes;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.exam.entranceinew.utils.ApplicationConstants;
+import com.exam.entranceinew.utils.ExpandableTextView;
 import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
 import com.exam.entranceinew.utils.Shared_Preference;
@@ -39,10 +41,11 @@ public class ChaptersScreen extends AppCompatActivity {
     ChaptersAdapter chaptersAdapter;
     ImageView iv_back;
     TextView tv_header;
+    ExpandableTextView ex_tv,ex_tv_bottom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.study_notes);
+        setContentView(R.layout.study_notes_description);
         initialize_view();
         function();
     }
@@ -57,6 +60,8 @@ public class ChaptersScreen extends AppCompatActivity {
         iv_back = findViewById(R.id.iv_back);
         tv_header = findViewById(R.id.tv_header);
         rvStudyNotes = findViewById(R.id.rvStudyNotes);
+        ex_tv = findViewById(R.id.ex_tv);
+
         rvStudyNotes.setLayoutManager(new LinearLayoutManager(ChaptersScreen.this, LinearLayoutManager.VERTICAL, false));
     }
     private void function() {
@@ -76,14 +81,14 @@ public class ChaptersScreen extends AppCompatActivity {
     private void chapters_list() {
         mView.showDialog();
         final String tag_string_req = "chapters_list";
-        String url = ApplicationConstants.chapters_list;
+        String url = ApplicationConstants.notes_subject_description;
         Log.d(TAG, "chapters_list: url >>> "+url);
         JSONObject js = new JSONObject();
         try {
 
             js.put("request_key",  globalClass.getRequest_key());
             js.put("request_token", globalClass.getRequest_token());
-            js.put("subject_id", getIntent().getStringExtra("id"));
+            js.put("subject_id", getIntent().getStringExtra("value"));
             js.put("device", "mobile");
 
             Log.d(TAG, "chapters_list: js >  "+js.toString());
@@ -110,10 +115,15 @@ public class ChaptersScreen extends AppCompatActivity {
 
                                 if(result.equals("true")) {
 
-                                    JSONArray data = jobj.getJSONArray("data");
-                                    for( int i = 0 ; i < data.length() ; i++ ) {
+                                    JSONObject data = jobj.getJSONObject("data");
 
-                                        JSONObject obj_data = data.getJSONObject(i);
+                                    String subject_title = data.getString("subject_title");
+                                    String subject_description = data.getString("subject_description");
+
+                                    JSONArray chapter_list = data.getJSONArray("chapter_list");
+                                    for( int i = 0 ; i < chapter_list.length() ; i++ ) {
+
+                                        JSONObject obj_data = chapter_list.getJSONObject(i);
                                         String id = obj_data.getString("id");
                                         String name = obj_data.getString("name");
 
@@ -124,9 +134,10 @@ public class ChaptersScreen extends AppCompatActivity {
                                         hashMap.put("id", id);
                                         hashMap.put("name", name);
                                         arr_study.add(hashMap);
+
                                     }
 
-
+                                    ex_tv.setText(Html.fromHtml(subject_description));
                                     rvStudyNotes.setLayoutManager(new LinearLayoutManager(ChaptersScreen.this, LinearLayoutManager.VERTICAL, false));
                                     chaptersAdapter = new ChaptersAdapter(ChaptersScreen.this, arr_study);
                                     rvStudyNotes.setAdapter(chaptersAdapter);

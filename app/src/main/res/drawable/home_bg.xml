@@ -3,7 +3,6 @@
     android:thickness="@dimen/_10sdp">
 
     <solid android:color="@color/blue"/>
-    <corners android:topRightRadius="@dimen/_30sdp"
-        android:bottomLeftRadius="@dimen/_30sdp"/>
+    <corners android:radius="@dimen/_5sdp"/>
 
 </shape>

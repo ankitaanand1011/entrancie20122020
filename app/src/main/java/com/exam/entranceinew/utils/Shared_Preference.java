@@ -30,6 +30,8 @@ public class Shared_Preference {
     private String pref_user_type;
     private String pref_user_profile;
     private String pref_user_token;
+    private String pref_country_code;
+    private String pref_class_name;
     private String jsonData;
     private String slider_pics;
     private String comments;
@@ -64,6 +66,8 @@ public class Shared_Preference {
     private static final String PREF_id = "id";
     private static final String PREF_profile_pic = "profile_pic";
     private static final String PREF_user_token = "user_token";
+    private static final String PREF_country_code = "country_code";
+    private static final String PREF_class_name = "class_name";
     private static final String JSON_data = "json_data";
     private static final String Slider_pics = "slider_pics";
     private static final String Comments = "comments";
@@ -142,6 +146,12 @@ public class Shared_Preference {
 
             pref_user_token= global_class.getUser_token();
             editor.putString(PREF_user_token,pref_user_token);
+
+            pref_country_code= global_class.getCountry_code();
+            editor.putString(PREF_country_code,pref_country_code);
+
+            pref_class_name=global_class.getClass_name();
+            editor.putString(PREF_class_name,pref_class_name);
 
          /*   customer_token= global_class.getCustomer_token();
             editor.putString(PREFcustomer_token,customer_token);
@@ -230,6 +240,12 @@ public class Shared_Preference {
 
             pref_user_token= sharedPreferences.getString(PREF_user_token,"");
             global_class.setUser_token(pref_user_token);
+
+            pref_country_code= sharedPreferences.getString(PREF_country_code,"");
+            global_class.setCountry_code(pref_country_code);
+
+            pref_class_name= sharedPreferences.getString(PREF_class_name,"");
+            global_class.setClass_name(pref_class_name);
 
           /*  b_pin= sharedPreferences.getString(PREF_b_pin,"");
             global_class.setB_pin(b_pin);

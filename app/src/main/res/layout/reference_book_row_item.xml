@@ -45,6 +45,7 @@
                 android:layout_toEndOf="@+id/rl_drawable_icon"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:text="topic name"
+                android:textSize="@dimen/_12sdp"
                 android:gravity="center_vertical"
                 android:textColor="@color/dark_grey"
                 android:layout_centerVertical="true"/>

@@ -45,13 +45,20 @@ public class ReferenceBookAdapter extends RecyclerView.Adapter<ReferenceBookAdap
     @Override
     public void onBindViewHolder(final ReferenceBookAdapter.ViewHolder holder, final int position) {
 
-        String name = arr_study.get(position).get("name");
+        String name = arr_study.get(position).get("title");
+
+
+    /*    String[] arrayString = name.split("NCERT Solutions for class 6 English");
+
+        String initial_string = arrayString[0];
+        String remaining_string = arrayString[1];*/
+
         holder.tv_name.setText(name);
 
         int[] androidColors = context.getResources().getIntArray(R.array.androidcolors);
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
 
-        holder.icon.setLetter(arr_study.get(position).get("name"));
+        holder.icon.setLetter(arr_study.get(position).get("title"));
         holder.icon.setLetterColor(context.getResources().getColor(R.color.white));
         holder.icon.setShapeColor(context.getResources().getColor(R.color.darkgreen));
         holder.icon.setShapeType(MaterialLetterIcon.Shape.CIRCLE);
@@ -70,8 +77,8 @@ public class ReferenceBookAdapter extends RecyclerView.Adapter<ReferenceBookAdap
                 holder.tv_class.setTextColor(context.getResources().getColor(R.color.white));*/
 
                 Intent intent = new Intent(context, BookSectionActivity.class);
-                intent.putExtra("id",arr_study.get(position).get("id"));
-                intent.putExtra("name",arr_study.get(position).get("name"));
+                intent.putExtra("id_sol",arr_study.get(position).get("id_sol"));
+                intent.putExtra("name",arr_study.get(position).get("title"));
 
                 Log.d("qwerty", "onClick: id ref"+arr_study.get(position).get("id"));
                 context.startActivity(intent);

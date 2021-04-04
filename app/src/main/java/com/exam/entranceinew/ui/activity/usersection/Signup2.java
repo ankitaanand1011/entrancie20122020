@@ -37,6 +37,7 @@ public class Signup2 extends AppCompatActivity {
     ViewDialog mView;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]";
 
+
     EditText fname_edt,lname_edt,email_edt,phn_edt,password_edt;
     @Override
     public void onCreate(Bundle savedInstanceState) {

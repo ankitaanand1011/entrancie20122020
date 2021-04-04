@@ -20,6 +20,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.exam.entranceinew.adapter.PdfImageAdapter;
+import com.exam.entranceinew.adapter.SectionlistAdapter;
 import com.exam.entranceinew.utils.ApplicationConstants;
 import com.exam.entranceinew.utils.GlobalClass;
 import com.exam.entranceinew.R;
@@ -27,6 +29,7 @@ import com.exam.entranceinew.utils.Shared_Preference;
 import com.exam.entranceinew.utils.ViewDialog;
 import com.exam.entranceinew.adapter.BookSectionAdapter;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -42,13 +45,15 @@ public class BookSectionActivity extends AppCompatActivity {
     GlobalClass globalClass;
     Shared_Preference shared_preference;
     ViewDialog mView;
-    private ArrayList<HashMap<String, String>> arr_study;
+    private ArrayList<HashMap<String, String>> arr_images;
     BookSectionAdapter bookSectionAdapter;
     ImageView iv_back;
     TextView tv_header,topic_name;
     WebView bottomwebview,topwebview;
     ImageView iv_layout_right,ivCloseDrawer;
     CardView llRightDrawer;
+    RecyclerView rvPdfList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +76,24 @@ public class BookSectionActivity extends AppCompatActivity {
         iv_layout_right = findViewById(R.id.iv_layout_right);
         llRightDrawer = findViewById(R.id.llRightDrawer);
         ivCloseDrawer = findViewById(R.id.ivCloseDrawer);
+        rvPdfList = findViewById(R.id.rvPdfList);
+
+    }
+    private void function() {
+
+        tv_header.setText("Contents");
+        topic_name.setText(getIntent().getStringExtra("title"));
+        arr_images = new ArrayList<>();
+      //  reference_book_content_description();
+        reference_book_section();
+
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
         iv_layout_right.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,39 +113,28 @@ public class BookSectionActivity extends AppCompatActivity {
             }
         });
 
-        rvStudyNotes.setNestedScrollingEnabled(false);
+        //rvPdfList.setNestedScrollingEnabled(false);
+    //    rvPdfList. setNestedScrollingEnabled(false);
+
         rvStudyNotes.setLayoutManager(new LinearLayoutManager(BookSectionActivity.this, LinearLayoutManager.VERTICAL, false));
+        rvPdfList.setLayoutManager(new LinearLayoutManager(BookSectionActivity.this, LinearLayoutManager.VERTICAL, false));
 
-    }
-    private void function() {
 
-        tv_header.setText("Contents");
-        arr_study = new ArrayList<>();
-        reference_book_content_description();
-        reference_book_section();
-
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     private void reference_book_section() {
-      //  mView.showDialog();
+        mView.showDialog();
 
-        Log.d("qwerty", "reference_book_section: id "+getIntent().getStringExtra("id"));
-        final String tag_string_req = "reference_book_section";
-        String url = ApplicationConstants.reference_book_section;
-        Log.d(TAG, "reference_book_section: url >>> "+url);
+        //Log.d("qwerty", "books_solution_description: id "+getIntent().getStringExtra("id"));
+        final String tag_string_req = "books_solution_description";
+        String url = ApplicationConstants.books_solution_description;
+        Log.d(TAG, "books_solution_description: url >>> "+url);
         JSONObject js = new JSONObject();
         try {
 
             js.put("request_key",  globalClass.getRequest_key());
             js.put("request_token", globalClass.getRequest_token());
-            js.put("book_id", getIntent().getStringExtra("id"));
-         //   js.put("book_id", "18");
+            js.put("book_solution_id", getIntent().getStringExtra("id_sol"));
             js.put("device", "mobile");
 
             Log.d(TAG, "reference_book_section: js >  "+js.toString());
@@ -149,33 +161,47 @@ public class BookSectionActivity extends AppCompatActivity {
 
                                 if(result.equals("true")) {
 
-                                    JSONArray data = jobj.getJSONArray("data");
-                                    for( int i = 0 ; i < data.length() ; i++ ) {
 
-                                        JSONObject obj_data = data.getJSONObject(i);
-                                        String ids = obj_data.getString("id");
-                                        String section_name = obj_data.getString("section_name");
+                                    JSONObject obj_data = jobj.getJSONObject("data");
+                                    String id = obj_data.getString("id");
+                                    String title = obj_data.getString("title");
+                                    String link_title = obj_data.getString("link_title");
+                                    String description = obj_data.getString("description");
 
-                                        Log.d(TAG, "onResponse:id>>> " + ids);
-                                        Log.d(TAG, "onResponse:section_name>>> " + ids);
 
-                                        HashMap<String, String> hashMap = new HashMap<>();
-                                        hashMap.put("id", ids);
-                                        hashMap.put("section_name", section_name);
-                                        arr_study.add(hashMap);
+                                    Log.d(TAG, "onResponse:id>>> " + id);
+
+                                    JSONArray pdf_images = obj_data.getJSONArray("pdf_images");
+                                    Log.d(TAG, "onResponse: pdf_images length>>> "+pdf_images.length());
+                                    if(pdf_images.length()>0) {
+                                        rvPdfList.setVisibility(View.VISIBLE);
+                                        for (int i = 0; i < pdf_images.length(); i++) {
+
+                                            String images_link = String.valueOf(pdf_images.get(i));
+
+                                            Log.d(TAG, "onResponse: images"+images_link);
+                                            HashMap<String, String> hashMap = new HashMap<>();
+                                            hashMap.put("images_link", images_link);
+
+                                            arr_images.add(hashMap);
+
+                                        }
+
+
+                                        PdfImageAdapter pdfImageAdapter = new PdfImageAdapter(BookSectionActivity.this, arr_images);
+                                        rvPdfList.setAdapter(pdfImageAdapter);
+                                        pdfImageAdapter.notifyDataSetChanged();
                                     }
 
+                                    description = description.replace("&#39;", "\'");
+                                    description = description.replace("&#34;", "\"");
+                                    Log.d(TAG, "onResponse:description replace>>>> " + description);
+
+                                    topic_name.setText(link_title);
+
+                                    topwebview.loadData(description, "text/html", "UTF-8");
 
 
-
-
-                                    Log.d(TAG, "onResponse: out loop i");
-
-                                    rvStudyNotes.setLayoutManager(new LinearLayoutManager(BookSectionActivity.this, LinearLayoutManager.VERTICAL, false));
-                                    bookSectionAdapter = new BookSectionAdapter(BookSectionActivity.this, arr_study,getIntent().getStringExtra("id"));
-                                    rvStudyNotes.setAdapter(bookSectionAdapter);
-
-                                    bookSectionAdapter.notifyDataSetChanged();
                                     mView.hideDialog();
 
 
@@ -214,9 +240,7 @@ public class BookSectionActivity extends AppCompatActivity {
                     // Posting parameters to login url
                     Map<String, String> params = new HashMap<>();
 
-                    params.put("request_key", globalClass.getRequest_key());
-                    params.put("request_token", globalClass.getRequest_token());
-                    params.put("device", "mobile");
+
 
 
                     Log.d(TAG, "getParams: "+params);
@@ -234,10 +258,10 @@ public class BookSectionActivity extends AppCompatActivity {
         }
     }
 
-    private void reference_book_content_description() {
+/*    private void reference_book_content_description() {
         mView.showDialog();
         final String tag_string_req = "reference_book_content_description";
-        String url = ApplicationConstants.reference_book_content_description;
+        String url = ApplicationConstants.books_solution_description;
         Log.d(TAG, "reference_book_content_description: url>>>> " + url);
         try {
             StringRequest strReq = new StringRequest(Request.Method.POST,
@@ -265,31 +289,33 @@ public class BookSectionActivity extends AppCompatActivity {
                         if (result.equals("true")) {
 
                             JsonObject data = jobj.getAsJsonObject("data");
-                            String name = data.get("name").getAsString().replaceAll("\"", "");
+                         //   String name = data.get("name").getAsString().replaceAll("\"", "");
                             String id = data.get("id").getAsString().replaceAll("\"", "");
-                        //    String type = data.get("type").getAsString().replaceAll("\"", "");
-                        //    String question_set_id = data.get("question_set_id").getAsString().replaceAll("\"", "");
-                            String top_description = data.get("top_description").getAsString().replaceAll("\"", "");
-                            String bottom_description = data.get("bottom_description").getAsString().replaceAll("\"", "");
+                            String title = data.get("title").getAsString().replaceAll("\"", "");
+                            String link_title = data.get("link_title").getAsString().replaceAll("\"", "");
+                            String description = data.get("description").getAsString().replaceAll("\"", "");
 
-                            Log.d(TAG, "onResponse:description>>>> " + top_description);
-                            Log.d(TAG, "onResponse:id>>> " + id);
-                            Log.d(TAG, "onResponse:name>>> " + name);
-                            top_description = top_description.replace("&#39;", "\'");
-                            top_description = top_description.replace("&#34;", "\"");
-                            Log.d(TAG, "onResponse:description replace>>>> " + top_description);
+                            JSONArray section_list = data.getJSONArray("section_list");
+                            Log.d(TAG, "onResponse: data>>"+data);
+                            for( int i = 0 ; i < section_list.length() ; i++ ) {
 
-                            bottom_description = bottom_description.replace("&#39;", "\'");
-                            bottom_description = bottom_description.replace("&#34;", "\"");
-                            Log.d(TAG, "onResponse:description replace>>>> " + bottom_description);
+                                JSONObject obj_data = section_list.getJSONObject(i);
+                            }
+                            JSONArray pdf_images = data.ge("pdf_images");
+                            for( int i = 0 ; i < pdf_images.size() ; i++ ){
+                                JsonObject obj_images = pdf_images.getAsJsonObject().get(i);
+                            }
 
-                            topic_name.setText(name);
+                            description = description.replace("&#39;", "\'");
+                            description = description.replace("&#34;", "\"");
+                            Log.d(TAG, "onResponse:description replace>>>> " + description);
 
-                         //   bottomwebview.setHtml(description);
-                            bottomwebview.loadData(bottom_description, "text/html", "UTF-8");
-                            topwebview.loadData(top_description, "text/html", "UTF-8");
-                           // mView.hideDialog();
-                            reference_book_section();
+
+
+
+                            topwebview.loadData(description, "text/html", "UTF-8");
+                            mView.hideDialog();
+                          //  reference_book_section();
 
                         } else {
                             mView.hideDialog();
@@ -323,7 +349,7 @@ public class BookSectionActivity extends AppCompatActivity {
                     params.put("request_key", globalClass.getRequest_key());
                     params.put("request_token", globalClass.getRequest_token());
                     params.put("device", "mobile");
-                    params.put("book_id", getIntent().getStringExtra("id"));
+                    params.put("book_solution_id", getIntent().getStringExtra("id_sol"));
 
 
                     Log.d(TAG, "getParams: " + params);
@@ -337,7 +363,7 @@ public class BookSectionActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
     
 
 }
