@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,7 +58,8 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+       View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         initialize_view(view);
         functions();
@@ -120,6 +122,76 @@ public class HomeFragment extends Fragment {
         colors_array.add( R.color.darkred);
         colors_array.add( R.color.blue);
         colors_array.add( R.color.d_green);
+
+        colors_array.add( R.color.darkblue);
+        colors_array.add( R.color.darkpurple);
+        colors_array.add( R.color.darkgreen);
+        colors_array.add( R.color.darkpink);
+        colors_array.add( R.color.darkorange);
+        colors_array.add( R.color.darkred);
+        colors_array.add( R.color.blue);
+        colors_array.add( R.color.d_green);
+        colors_array.add( R.color.darkblue);
+        colors_array.add( R.color.darkpurple);
+        colors_array.add( R.color.darkgreen);
+        colors_array.add( R.color.darkpink);
+        colors_array.add( R.color.darkorange);
+        colors_array.add( R.color.darkred);
+        colors_array.add( R.color.blue);
+        colors_array.add( R.color.d_green);
+
+        colors_array.add( R.color.darkblue);
+        colors_array.add( R.color.darkpurple);
+        colors_array.add( R.color.darkgreen);
+        colors_array.add( R.color.darkpink);
+        colors_array.add( R.color.darkorange);
+        colors_array.add( R.color.darkred);
+        colors_array.add( R.color.blue);
+        colors_array.add( R.color.d_green);
+        colors_array.add( R.color.darkblue);
+        colors_array.add( R.color.darkpurple);
+        colors_array.add( R.color.darkgreen);
+        colors_array.add( R.color.darkpink);
+        colors_array.add( R.color.darkorange);
+        colors_array.add( R.color.darkred);
+        colors_array.add( R.color.blue);
+        colors_array.add( R.color.d_green);
+
+        colors_array.add( R.color.darkblue);
+        colors_array.add( R.color.darkpurple);
+        colors_array.add( R.color.darkgreen);
+        colors_array.add( R.color.darkpink);
+        colors_array.add( R.color.darkorange);
+        colors_array.add( R.color.darkred);
+        colors_array.add( R.color.blue);
+        colors_array.add( R.color.d_green);
+        colors_array.add( R.color.darkblue);
+        colors_array.add( R.color.darkpurple);
+        colors_array.add( R.color.darkgreen);
+        colors_array.add( R.color.darkpink);
+        colors_array.add( R.color.darkorange);
+        colors_array.add( R.color.darkred);
+        colors_array.add( R.color.blue);
+        colors_array.add( R.color.d_green);
+
+        colors_array.add( R.color.darkblue);
+        colors_array.add( R.color.darkpurple);
+        colors_array.add( R.color.darkgreen);
+        colors_array.add( R.color.darkpink);
+        colors_array.add( R.color.darkorange);
+        colors_array.add( R.color.darkred);
+        colors_array.add( R.color.blue);
+        colors_array.add( R.color.d_green);
+        colors_array.add( R.color.darkblue);
+        colors_array.add( R.color.darkpurple);
+        colors_array.add( R.color.darkgreen);
+        colors_array.add( R.color.darkpink);
+        colors_array.add( R.color.darkorange);
+        colors_array.add( R.color.darkred);
+        colors_array.add( R.color.blue);
+        colors_array.add( R.color.d_green);
+
+
 
         tv_name.setText(globalClass.getF_name()+" "+globalClass.getL_name());
         tv_email.setText(globalClass.getEmail());

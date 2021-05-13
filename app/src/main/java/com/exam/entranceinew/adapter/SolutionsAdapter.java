@@ -3,6 +3,7 @@ package com.exam.entranceinew.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,8 +83,9 @@ public class SolutionsAdapter extends RecyclerView.Adapter<SolutionsAdapter.View
                 holder.tv_class.setTextColor(context.getResources().getColor(R.color.white));*/
 
                 Intent intent = new Intent(context, NcertChapters.class);
-                intent.putExtra("id",ncert_arr.get(position).get("id"));
+                intent.putExtra("id",ncert_arr.get(position).get("id_val"));
                 intent.putExtra("name",ncert_arr.get(position).get("name"));
+                Log.d(TAG, "onClick: qwerty "+ncert_arr.get(position).get("id_val"));
                 context.startActivity(intent);
 
             }
